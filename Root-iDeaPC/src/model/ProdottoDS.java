@@ -35,7 +35,7 @@ private static final String TABLE_NAME = "prodotto";
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + TABLE_NAME + 
-				" (NOME , DESCRIZIONE, PREZZO , PATH_IMMAGINE, QUANTITA) VALUES (?, ?, ? , ? ,? , ?)";
+				" (NOME , DESCRIZIONE, PREZZO , PATH_IMMAGINE, QUANTITA) VALUES (?, ?, ? , ? ,? )";
 
 
 		try {
@@ -46,6 +46,7 @@ private static final String TABLE_NAME = "prodotto";
 			preparedStatement.setDouble(3, prodotto.getPrezzo());
 			preparedStatement.setString(4, prodotto.getImmagine());
 			preparedStatement.setInt(5, prodotto.getQuantità());
+			System.out.println(prodotto.toString());
 			preparedStatement.executeUpdate();
 			connection.commit();
 	} finally {
