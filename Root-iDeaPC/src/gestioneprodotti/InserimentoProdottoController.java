@@ -1,4 +1,4 @@
-package controller;
+package gestioneprodotti;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -58,7 +58,8 @@ public class InserimentoProdottoController extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			
+//				RequestDispatcher view = request.getRequestDispatcher("gestione-prodotto.jsp");
+//				view.forward(request, response);
 	}
 	}
 
