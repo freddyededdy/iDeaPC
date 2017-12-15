@@ -118,7 +118,7 @@
 <h3>Aggiungi dati prodotto:</h3>
 
 	<div>
- <FORM ACTION="InserimentoProdottoController" METHOD="post">
+ <FORM ACTION="InserimentoProdottoController" METHOD="post" enctype="multipart/form-data">
    <label for="fname">Immagine</label>
      <div class="file-field input-field">
       <div class="btn">
