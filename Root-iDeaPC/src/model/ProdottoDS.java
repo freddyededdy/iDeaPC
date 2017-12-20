@@ -181,15 +181,15 @@ private static final String TABLE_NAME = "prodotto";
 			try {
 				connection = ds.getConnection();
 				preparedStatement = connection.prepareStatement(updateSql);
-				preparedStatement.setInt(5, prodotto.getId_prod());
 				preparedStatement.setString(1, prodotto.getNome());
 				preparedStatement.setString(2, prodotto.getDescrizione());
 				preparedStatement.setDouble(3,prodotto.getPrezzo());
 				preparedStatement.setString(4, prodotto.getImmagine());
-				preparedStatement.setInt(6, prodotto.getQuantità());
+				preparedStatement.setInt(5, prodotto.getQuantità());
+				preparedStatement.setInt(6, prodotto.getId_prod());
 				preparedStatement.executeUpdate();
 				connection.commit();
-
+				System.out.println(preparedStatement.toString());
 			} finally {
 				try {
 					if (preparedStatement != null)

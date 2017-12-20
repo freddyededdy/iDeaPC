@@ -45,16 +45,17 @@
 </script>
 </head>
 <body class="body">
-<%-- 	<%		 --%>
-// 	try{
-// HttpSession sessione= request.getSession();
-// Cliente cliente=(Cliente)sessione.getAttribute("cliente");
-// int id_cli=Integer.parseInt(request.getParameter("id"));
+<%
+try{
+HttpSession sessione= request.getSession();
+//Cliente cliente=(Cliente)sessione.getAttribute("cliente");
+//int id_cli=Integer.parseInt(request.getParameter("id"));
 
 
 // Collection<Ordine>ordiniCliente=ordineds.getOrdiniCliente(id_cli);
 			
-<%-- 	%> --%>
+%>
+
 <%fatturaDS fatturads= new fatturaDS();
 ComposizioneDs composizioneds= new ComposizioneDs();
 OrdineDs ordineds= new OrdineDs();%>
@@ -122,7 +123,7 @@ int id = Integer.parseInt(request.getParameter("id"));
 for(int i = 0; i<prodotti.size(); i++){
 	if(prodotti.get(i).getId_prod() == id){ %>
 	<div>
- <FORM ACTION= "ModificaProdottoController" METHOD="post">
+ <FORM ACTION= "ModificaProdottoController" METHOD="post" enctype="multipart/form-data">
 <label for="fname">Immagine</label>
       	 
     <div class="file-field input-field">
@@ -162,13 +163,12 @@ for(int i = 0; i<prodotti.size(); i++){
 </div>
 
 
-<% 	} 
-}%>
-//}
-// }catch(Exception e){
-// 	response.sendRedirect("erroreaccesso.jsp");
-// 	}
-<%-- %> --%>
+<% 	}
+}
+}catch(Exception e){
+	response.sendRedirect("erroreaccesso.jsp");
+	}
+%>
 
 
 					</article>
