@@ -154,9 +154,10 @@
 				%>
 				<tr class="header">
 					<th style="width: 25%;">Nome prodotto</th>
-				    <th style ="width:300%;"> immagine del prodotto </th>
+				    <th style ="width:200%;"> immagine del prodotto </th>
 					<th style="width: 25%;">Descrizione prodotto</th>
 					<th style="width: 10%;">Prezzo prodotto</th>
+					<th style="width: 10%;">Quantià prodotto</th>
 					<th style="width: 10%;">Modifica/Rimuovi prodotto</th>
 				</tr>
 				<% 
@@ -172,6 +173,7 @@
 					 <td> <img class="materialboxed"  width="130" src = "<%=pr.getImmagine() %>"></td>
 					<td><%=pr.getDescrizione()%></td>
 					<td><%=pr.getPrezzo()%></td>
+					<td><%= pr.getQuantità()%></td>
 					<td>
 						
 						

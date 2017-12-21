@@ -78,7 +78,8 @@ public class ModificaProdottoController extends HttpServlet {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
+		RequestDispatcher view = request.getRequestDispatcher("gestione-prodotto.jsp");
+		view.forward(request, response);
 			
 		}
 
