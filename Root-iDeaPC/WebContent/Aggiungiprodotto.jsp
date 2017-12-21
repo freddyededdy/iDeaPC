@@ -33,6 +33,7 @@
 		}
 		if(document.getElementById("prezzo").value <= 0){
 			alert("Prezzo non valido, inserito prezzo negativo!");
+			document.getElementById("prezzo").value = "";
 		}
 	}
 	function checkQuantita(){
@@ -43,6 +44,7 @@
 		}
 		if(document.getElementById("quantita").value <= 0){
 			alert("Quantità non valida, inserita quantità negativa!");
+			document.getElementById("quantita").value = "";
 		}
 	}
 	</script>
@@ -140,7 +142,7 @@
  	<br>
 <br>
         <label for="lname">Quantità </label>
-    <input type="text"   name="quantita" id = "quantita" onChange="checkQuantita();" required>
+    <input type="text"   name = "quantita" id = "quantita" onChange="checkQuantita();" required>
  	<br>
  	<br>
     <BUTTON type="submit" class="waves-effect waves-light btn" >SALVA</BUTTON>

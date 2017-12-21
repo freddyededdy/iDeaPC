@@ -33,7 +33,34 @@
   $( document ).ready(function(){
 	  $(".button-collapse").sideNav();
   });
- </script> 
+  </script>
+  <script type = "text/javascript">
+	function checkPrezzo(){
+	//	console.log("checkPrezzo");
+		var prezzo = document.getElementById("prezzo").value;
+		if(isNaN(prezzo)){
+			alert("inserire valore valido");
+			document.getElementById("prezzo").value = "";
+		}
+		if(document.getElementById("prezzo").value <= 0){
+			alert("Prezzo non valido, inserito prezzo negativo!");
+			document.getElementById("prezzo").value = "";
+		}
+	}
+	</script>
+	<script>
+	function checkQuantita(){
+		var quantita = document.getElementById("quantita").value;
+		if(isNaN(quantita)){
+			alert("inserire valore valido");
+			document.getElementById("quantita").value = "";
+		}
+		if(document.getElementById("quantita").value <= 0){
+			alert("Quantità non valida, inserita quantità negativa!");
+			document.getElementById("quantita").value = "";
+		}
+	}
+	</script>
 <script type="text/javascript">
 <!--
 	var stile = "top=30, left=150, width=300, height=700, status=no, menubar=no, toolbar=no scrollbars=no";
@@ -72,7 +99,7 @@ OrdineDs ordineds= new OrdineDs();%>
 <div class="btn-group red">
   <a href="Logout.jsp" class="btn btn-primary">Logout</a>
   
-
+-
 </div>
 
     </div>
@@ -126,13 +153,24 @@ for(int i = 0; i<prodotti.size(); i++){
  <FORM ACTION= "ModificaProdottoController" METHOD="post" enctype="multipart/form-data">
 <label for="fname">Immagine</label>
       	 
-    <div class="file-field input-field">
+    <label for="fname">Nome</label>
+    <input type="text"  name="nome" value ="<%=prodotti.get(i).getNome() %>" required >
+<br>
+    <label for="lname">Descrizione </label>
+    <input type="text"  name="descrizione" value= "<%=prodotti.get(i).getDescrizione()%>" >
+<br>
+        <label for="lname">Prezzo </label>
+    <input type="text"  name= " prezzo " id ="prezzo" value= "<%= prodotti.get(i).getPrezzo() %> " onChange="checkPrezzo();" required>
+    <br>
+        <label for="lname">Quantità </label>
+    <input type="text"  name="quantita" id = "quantita" value  = "<%= prodotti.get(i).getQuantità() %>" onChange="checkQuantita();" required>
+ 	
+ 	 
+     <div class="file-field input-field">
      <input type ="hidden" name ="id" value = "<%= prodotti.get(i).getId_prod() %>" >
-     <input type="hidden" name="immagineO" value = "<%= prodotti.get(i).getImmagine() %>" >  
     <br>  <div class="btn">
         <span>File</span>
-        <input type = file name = "immagine"  >
-        
+        <input type = file name = "immagine">
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
@@ -140,20 +178,6 @@ for(int i = 0; i<prodotti.size(); i++){
       </div>
     </div>
  
-    <label for="fname">Nome</label>
-    <input type="text"  name="nome" value ="<%=prodotti.get(i).getNome() %>" required >
-<br>
-    <label for="lname">Descrizione </label>
-    <input type="text"  name="descrizione" value=  "<%=prodotti.get(i).getDescrizione()%>" >
-<br>
-        <label for="lname">Prezzo </label>
-    <input type="text"  name="prezzo" value  = "<%= prodotti.get(i).getPrezzo() %> " required>
-    <br>
-        <label for="lname">Quantità </label>
-    <input type="text"  name="quantita" value  = "<%= prodotti.get(i).getQuantità() %> " required>
- 	
- 	 
-    
 
  	<br>
     <BUTTON type="submit" class="waves-effect waves-light btn" value="salva" >SALVA</BUTTON>

@@ -43,6 +43,7 @@ public class InserimentoProdottoController extends HttpServlet {
 	private double prezzo; 
 	private int quantita;
 	private String immagine;
+	private String immagineOriginale;
 	private Prodotto p;
 	
     /**
@@ -148,8 +149,10 @@ public class InserimentoProdottoController extends HttpServlet {
         
         
     	private void creaProdotto(HttpServletRequest request, HttpServletResponse response) {
+    		
  		   	immagine = parametri.get(0);
- 		   	nome = parametri.get(1);
+ 		   	immagineOriginale = parametri.get(1);
+ 		   	nome = parametri.get(2);
  		   	descrizione = parametri.get(2);
  		   	prezzo = Double.parseDouble(parametri.get(3));
  		   	quantita = Integer.parseInt(parametri.get(4));
