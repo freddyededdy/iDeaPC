@@ -283,12 +283,12 @@ public class ClienteDS implements Model_Interface<Cliente>{
 	}
 
 	public synchronized boolean findUserEPass(String user, String pass) throws SQLException{
+		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE email = ? && pass= ?";
 
 		try {
-			
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1, user);
@@ -297,6 +297,7 @@ public class ClienteDS implements Model_Interface<Cliente>{
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
+				
 				return true;
 			}
 		} finally {
@@ -308,6 +309,7 @@ public class ClienteDS implements Model_Interface<Cliente>{
 					connection.close();
 			}
 		}
+		
 		return false;
 
 	}
