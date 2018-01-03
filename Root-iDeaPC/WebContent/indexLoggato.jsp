@@ -70,10 +70,11 @@ try{
     position:relative;">
 <p style=" text-align:center;"><i class="small material-icons">perm_identity</i> Ciao <%=cliente.getNome() %></p>  
 <div class="btn-group red">
-  <a href="Logout.jsp" class="btn btn-primary">Logout</a>
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
+  <form action= "LogoutController" method = "post" class="btn btn-primary"  > 
+  <button type="submit" class="btn btn-primary dropdown-toggle">
   </button>
+  </form>
+    <span class="caret"></span>
   <ul class="dropdown-menu " role="menu">
     <li> <a href ="visualizzadaticliente.jsp"> visualizza dati</a> </li>
   </ul>
