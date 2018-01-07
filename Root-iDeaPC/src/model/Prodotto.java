@@ -16,6 +16,17 @@ public Prodotto( int id, String n, String d, double p, String im, int q){
 public Prodotto() {
 	// TODO Auto-generated constructor stub
 }
+private int quantitaCarrello;
+public Prodotto(int id, String n, String d, double p, String im, int q, int quantcarrello){
+	this.id_prod = id;
+	this.nome = n;
+	this.descrizione = d;
+	this.prezzo = p;
+	this.quantita= q;
+	this.immagine=im;
+	this.quantitaCarrello=quantcarrello;
+	
+}
 public String getImmagine() {
 	return immagine;
 }
@@ -53,11 +64,19 @@ public int getQuantità() {
 public void setQuantità(int quantità) {
 	this.quantita = quantità;
 }
+
+public int getQuantitaCarrello() {
+	return quantitaCarrello;
+}
+public void setQuantitaCarrello(int quantitaCarrello) {
+	this.quantitaCarrello = quantitaCarrello;
+}
 @Override
 public String toString() {
 	return "Prodotto [id_prod=" + id_prod + ", nome=" + nome + ", descrizione=" + descrizione + ", prezzo=" + prezzo
 			+ ", quantità=" + quantita + "]";
 }
+
 
 
 }

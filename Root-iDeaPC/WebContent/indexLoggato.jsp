@@ -93,15 +93,15 @@ try{
       <ul id="nav-mobile" class="left hide-on-med-and-down" style="margin:0px 20px">
         
                <li><a href="index utente loggato.jsp">HOME</a></li>
-        <li><a href="menu utente loggato.jsp">MENU</a></li>
+        <li><a href="menuutenteloggato.jsp">MENU</a></li>
         <li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
         <li><a href="contatti utente loggato.jsp">CONTATTI</a>
         <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
         <% System.out.println(session.getId()); %>
       </ul>
                <ul class="side-nav" id="mobile-demo">
-      <li><a href="menu utente loggato.jsp">MENU</a></li>
-        <li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
+      <li><a href="menuutenteloggato.jsp">MENU</a></li>
+        <li><a href="recensioniutenteloggato.jsp">RECENSIONI</a>
         <li><a href="contatti utente loggato.jsp">CONTATTI</a>
         <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
       </ul>

@@ -68,15 +68,21 @@ function dif(index , indexp){
 }
 </script>
 <script type="text/javascript">
-function add(index , indexp){
-
- var  newcur ;
- var cur=eval(document.getElementById(index).value);
-
-  newcur=cur+1;
- 
-document.getElementById(indexp).value=newcur;
-document.getElementById(index).value=newcur;
+function add(index , indexp , indexk){
+	var  quant = eval(document.getElementById(indexk).value);
+ 	var  newcur;
+ 	var cur=eval(document.getElementById(index).value);
+ 	if(quant > cur){
+ 	newcur=cur+1;
+ 	document.getElementById(indexp).value=newcur;
+ 	document.getElementById(index).value=newcur;
+ 	}else{
+ 	alert("disponibilità in magazzino terminate")	
+ 	}
+ 	if(cur<=0){
+ 		document.getElementById("bottonecarrello").disabled = true;
+ 		console.log("soono qua");
+ 	}
 
 }
 </script>
@@ -193,6 +199,7 @@ function Popup(apri)
               <th>descrizione</th>
               <th>prezzo</th>
               <th> quantita'</th>
+              <th> disponibilita'</th>
               <th> aggiungi al carrello </th>
               <th></th>
              
@@ -206,6 +213,7 @@ function Popup(apri)
 					Iterator<?> it = prodotti.iterator();
 					int index=0;
 				    int indexp = 1000;
+				    int indexk = 5000;
 					while (it.hasNext()) {
 						
 						Prodotto pr = (Prodotto) it.next();
@@ -217,23 +225,28 @@ function Popup(apri)
             <td><%=pr.getPrezzo()%></td>
    	<td >  <div class="quantity-widget"> 
     
-<button class="less small waves-effect waves-light btn" onClick="dif(<%=index%> , <%=indexp%>)">-</button> <input type="text" disabled   value="1" id="<%=index%>" style="color:black">
- <button class="more small waves-effect waves-light btn" onClick="add(<%=index%> , <%=indexp%>)">+ </button>
+<button class="less small waves-effect waves-light btn" onClick="dif(<%=index%> , <%=indexp%> , <%=indexk%> )">-</button> 
+<input type="text" disabled   value="1" id="<%=index%>" style="color:black">
+ <button class="more small waves-effect waves-light btn" onClick="add(<%=index%> , <%=indexp%> , <%=indexk%>)">+ </button>
    </div>
    </td>
+   <td> <input type="text" disabled name= "quantitamagazzino"   value="<%=pr.getQuantità()%>" id="<%=indexk%>" style="color:black"> 
+   
+   </td>
+   
    <td>
 
-   <form action="CarrelloController" method="post">
-   <input type="hidden" name="action" value="aggiungialcarrello"/> 
+   <form action="AggiungialCarrello" method="post">
    <input type="hidden" name="quantita" id="<%=indexp%>" value = "1" />
       <input type="hidden" name="id_prod" value="<%=pr.getId_prod()%>" />
-     <button type="submit" class="waves-effect waves-light btn">CARRELLO</button> </form></td>
+      <button type="submit" id = "bottonecarrello" class="waves-effect waves-light btn">CARRELLO</button> </form></td>
 						
        
           </tr>
                <%
                index+=1;
                indexp+=1;
+               indexk+=1;
                } %>
               
              
