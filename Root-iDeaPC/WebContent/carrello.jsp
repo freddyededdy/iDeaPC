@@ -189,8 +189,7 @@ HttpSession sessione = request.getSession();
             <td><%=pr.getPrezzo()%></td>
             <td><%=pr.getQuantitaCarrello() %></td> 
             
-            <form action="CarrelloController" method="post">
-			  <input type="hidden" name="action" value="rimuoviDalCarrello"/>
+            <form action="rimuovidalcarrellocontroller" method="post">
 			    <input type="hidden" name="id_prod" value="<%=pr.getId_prod()%>" />
 			<td><button type="submit" class="waves-effect waves-light btn">  
 			<i class="tiny material-icons">delete</i></button></td> 
@@ -202,9 +201,8 @@ HttpSession sessione = request.getSession();
              
         </tbody>
       </table>
-       <form action = "CarrelloController"  method = "post">    
+       <form action = "svuotacarrellocontroller"  method = "post">    
 <button type="submit" class="waves-effect waves-light btn"> SVUOTA CARRELLO <i class="tiny material-icons">delete</i></button>
-  <input type="hidden" name="action" value="rimuovitutto"/>
   </form> 
   <form action = "OrdineController" method ="post">
 <a class="waves-effect waves-light btn" href="#modal"> CONFERMA ORDINE <i class="tiny material-icons">done</i></a>

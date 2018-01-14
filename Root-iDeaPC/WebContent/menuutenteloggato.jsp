@@ -47,6 +47,7 @@ $(document).ready(function(){
   $('.parallax').parallax();
 });
   </script>
+
 <script type="text/javascript">
 function dif(index , indexp){
  var newcur;
@@ -243,7 +244,7 @@ function Popup(apri)
    <form action="AggiungialCarrello" method="post">
    <input type="hidden" name="quantita" id="<%=indexp%>" value = "0" />
       <input type="hidden" name="id_prod" value="<%=pr.getId_prod()%>" />
-      <button type="submit" id = "<%=indexc%>" class="waves-effect waves-light btn">CARRELLO</button> </form></td>
+      <button type="submit" id = "<%=indexc%>" class="waves-effect waves-light btn" >CARRELLO</button> </form></td>
 						
        
           </tr>
