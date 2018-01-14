@@ -51,6 +51,7 @@ public class AggiungialCarrello extends HttpServlet {
 		boolean presente=false;  //diventerà true quando il carrello conterrà già prodotti con quell'id
 		int id_prod	= Integer.parseInt(request.getParameter("id_prod"));
 		int quantita=Integer.parseInt(request.getParameter("quantita"));	//quantita ordinata nello store
+		if(quantita != 0){
 		ArrayList<Prodotto>prodotticarrello=carrello.getOggettiCarrello();
 		Prodotto pr= new Prodotto();
 		try {
@@ -87,6 +88,7 @@ public class AggiungialCarrello extends HttpServlet {
 
 			carrello.aggiungi(prodotto);
 			
+		}
 		}
 		session.setAttribute("carrello", carrello);
 		RequestDispatcher dispatcher;

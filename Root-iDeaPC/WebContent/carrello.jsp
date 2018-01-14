@@ -79,7 +79,7 @@ function checkvaluepin(){
 function checkq(q){
 	if(q==0){
 		alert("il carrello è vuoto");
-		window.location = "index utente loggato.jsp"; } 
+		window.location = "menuutenteloggato.jsp"; } 
 	else return;
 }</script>
 

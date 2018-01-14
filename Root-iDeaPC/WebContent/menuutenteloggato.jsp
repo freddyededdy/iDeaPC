@@ -52,7 +52,7 @@ function dif(index , indexp){
  var newcur;
  var cur=eval(document.getElementById(index).value);
  console.log("valore cur "+cur);
- if(cur > 1){
+ if(cur > 0){
 	 newcur=cur-1;
 	 document.getElementById(indexp).value=newcur;
 	 document.getElementById(index).value=newcur;
@@ -68,24 +68,27 @@ function dif(index , indexp){
 }
 </script>
 <script type="text/javascript">
-function add(index , indexp , indexk){
+function add(index , indexp , indexk , indexc){
 	var  quant = eval(document.getElementById(indexk).value);
  	var  newcur;
  	var cur=eval(document.getElementById(index).value);
+ 	if(quant == 0){
+		document.getElementById(indexc).disabled=true;
+	}
  	if(quant > cur){
- 	newcur=cur+1;
- 	document.getElementById(indexp).value=newcur;
- 	document.getElementById(index).value=newcur;
- 	}else{
- 	alert("disponibilità in magazzino terminate")	
- 	}
- 	if(cur<=0){
- 		document.getElementById("bottonecarrello").disabled = true;
- 		console.log("soono qua");
- 	}
+ 	 	newcur=cur+1;
+ 	 	document.getElementById(indexp).value=newcur;
+ 	 	document.getElementById(index).value=newcur;
+ 	 	}else{
+ 	 	alert("disponibilità in magazzino terminate")	
+ 	 	}
+ 	
 
 }
+
+
 </script>
+
   <script type="text/javascript">
 
   $( document ).ready(function(){
@@ -214,6 +217,7 @@ function Popup(apri)
 					int index=0;
 				    int indexp = 1000;
 				    int indexk = 5000;
+				    int indexc = 8000;
 					while (it.hasNext()) {
 						
 						Prodotto pr = (Prodotto) it.next();
@@ -226,8 +230,8 @@ function Popup(apri)
    	<td >  <div class="quantity-widget"> 
     
 <button class="less small waves-effect waves-light btn" onClick="dif(<%=index%> , <%=indexp%> , <%=indexk%> )">-</button> 
-<input type="text" disabled   value="1" id="<%=index%>" style="color:black">
- <button class="more small waves-effect waves-light btn" onClick="add(<%=index%> , <%=indexp%> , <%=indexk%>)">+ </button>
+<input type="text" disabled   value="0" id="<%=index%>" style="color:black">
+ <button class="more small waves-effect waves-light btn" onClick="add(<%=index%> , <%=indexp%> , <%=indexk%> ,<%=indexc%> )">+ </button>
    </div>
    </td>
    <td> <input type="text" disabled name= "quantitamagazzino"   value="<%=pr.getQuantità()%>" id="<%=indexk%>" style="color:black"> 
@@ -237,9 +241,9 @@ function Popup(apri)
    <td>
 
    <form action="AggiungialCarrello" method="post">
-   <input type="hidden" name="quantita" id="<%=indexp%>" value = "1" />
+   <input type="hidden" name="quantita" id="<%=indexp%>" value = "0" />
       <input type="hidden" name="id_prod" value="<%=pr.getId_prod()%>" />
-      <button type="submit" id = "bottonecarrello" class="waves-effect waves-light btn">CARRELLO</button> </form></td>
+      <button type="submit" id = "<%=indexc%>" class="waves-effect waves-light btn">CARRELLO</button> </form></td>
 						
        
           </tr>
@@ -247,6 +251,7 @@ function Popup(apri)
                index+=1;
                indexp+=1;
                indexk+=1;
+               indexc+=1;
                } %>
               
              
