@@ -1,6 +1,7 @@
 package gestioneacquisti;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -22,15 +23,15 @@ import model.ProdottoDS;
 public class rimuovidalcarrellocontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static ProdottoDS prodottods = new ProdottoDS();
-	
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public rimuovidalcarrellocontroller() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public rimuovidalcarrellocontroller() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,10 +50,22 @@ public class rimuovidalcarrellocontroller extends HttpServlet {
 		HttpSession session = request.getSession();
 		Carrello carrello =((Carrello)session.getAttribute("carrello"));
 		int idprod=Integer.parseInt(request.getParameter("id_prod"));
-
+		Prodotto pr =  new Prodotto();
+		try {
+			pr = prodottods.findByKey(idprod);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		pr.setQuantità(pr.getQuantità()+1);
+		try {
+			prodottods.update(pr);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ArrayList<Prodotto>prodcarrello=carrello.getOggettiCarrello();
 		for(int i=0; i<prodcarrello.size(); i++){
-
 			if(idprod==prodcarrello.get(i).getId_prod()){
 				if(prodcarrello.get(i).getQuantitaCarrello()>1){
 					int q=prodcarrello.get(i).getQuantitaCarrello();
@@ -63,12 +76,13 @@ public class rimuovidalcarrellocontroller extends HttpServlet {
 			}
 
 
+
 		}
-		
 		session.setAttribute("carrello", carrello);
 		RequestDispatcher dispatcher;
 		dispatcher = getServletContext().getRequestDispatcher("/carrello.jsp");
 		dispatcher.forward(request,response);
-	}
 
+
+	}
 }

@@ -53,7 +53,7 @@ public class AggiungialCarrello extends HttpServlet {
 		int quantita=Integer.parseInt(request.getParameter("quantita"));	//quantita ordinata nello store
 		if(quantita != 0){
 		ArrayList<Prodotto>prodotticarrello=carrello.getOggettiCarrello();
-		Prodotto pr= new Prodotto();
+		Prodotto pr = new Prodotto();
 		try {
 			pr = prodottods.findByKey(id_prod);
 		} catch (SQLException e) {
