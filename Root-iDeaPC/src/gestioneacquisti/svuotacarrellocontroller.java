@@ -1,6 +1,8 @@
 package gestioneacquisti;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Carrello;
+import model.Prodotto;
 import model.ProdottoDS;
 
 /**
@@ -44,6 +47,27 @@ public class svuotacarrellocontroller extends HttpServlet {
 		doGet(request, response);
 		HttpSession session = request.getSession();
 		Carrello carrello =((Carrello)session.getAttribute("carrello"));
+		int idprod, quant;
+		Prodotto prodotto = new Prodotto();
+		ArrayList<Prodotto>prodotticarrello=carrello.getOggettiCarrello();
+		for(int i = 0; i<prodotticarrello.size(); i++){
+			idprod = prodotticarrello.get(i).getId_prod();
+			try {
+				prodotto =prodottods.findByKey(idprod);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			quant = prodotticarrello.get(i).getQuantitaCarrello();
+			prodotto = prodotticarrello.get(i);
+			prodotto.setQuantità(quant+prodotto.getQuantità());
+			try {
+				prodottods.update(prodotto);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
 		carrello.rimuovitutto();
 		session.setAttribute("carrello", carrello);
 		RequestDispatcher dispatcher;
