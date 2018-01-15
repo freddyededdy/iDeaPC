@@ -204,7 +204,7 @@ HttpSession sessione = request.getSession();
        <form action = "svuotacarrellocontroller"  method = "post">    
 <button type="submit" class="waves-effect waves-light btn"> SVUOTA CARRELLO <i class="tiny material-icons">delete</i></button>
   </form> 
-  <form action = "OrdineController" method ="post">
+  <form action = "Acquistacontroller" method ="post">
 <a class="waves-effect waves-light btn" href="#modal"> CONFERMA ORDINE <i class="tiny material-icons">done</i></a>
 <div id="modal" class="modal">
     <div class="modal-content">
