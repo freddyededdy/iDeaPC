@@ -17,16 +17,16 @@ import model.Prodotto;
 import model.ProdottoDS;
 
 /**
- * Servlet implementation class svuotacarrellocontroller
+ * Servlet implementation class Svuotacarrellocontroller
  */
-@WebServlet("/svuotacarrellocontroller")
-public class svuotacarrellocontroller extends HttpServlet {
+@WebServlet("/Svuotacarrellocontroller")
+public class Svuotacarrellocontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static ProdottoDS prodottods = new ProdottoDS();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public svuotacarrellocontroller() {
+    public Svuotacarrellocontroller() {
         super();
         // TODO Auto-generated constructor stub
     }

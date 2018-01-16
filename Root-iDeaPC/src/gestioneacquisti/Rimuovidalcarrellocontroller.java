@@ -17,10 +17,10 @@ import model.Prodotto;
 import model.ProdottoDS;
 
 /**
- * Servlet implementation class rimuovidalcarrellocontroller
+ * Servlet implementation class Rimuovidalcarrellocontroller
  */
-@WebServlet("/rimuovidalcarrellocontroller")
-public class rimuovidalcarrellocontroller extends HttpServlet {
+@WebServlet("/Rimuovidalcarrellocontroller")
+public class Rimuovidalcarrellocontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static ProdottoDS prodottods = new ProdottoDS();
 
@@ -28,7 +28,7 @@ public class rimuovidalcarrellocontroller extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public rimuovidalcarrellocontroller() {
+	public Rimuovidalcarrellocontroller() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
