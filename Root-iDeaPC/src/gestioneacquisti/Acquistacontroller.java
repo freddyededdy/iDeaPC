@@ -117,7 +117,7 @@ public class Acquistacontroller extends HttpServlet {
 			for(int i=0; i<prodottiCarrello.size(); i++){
 				id_prod=prodottiCarrello.get(i).getId_prod();
 				nome_prodotto=prodottiCarrello.get(i).getNome();
-				quantita=prodottiCarrello.get(i).getQuantità();
+				quantita=prodottiCarrello.get(i).getQuantitaCarrello();
 				prezzo=prodottiCarrello.get(i).getPrezzo();
 				totale_imponibile+=prezzo*quantita;
 				Composizione composizione= new Composizione(id_ordine, id_prod, prezzo, quantita, nome_prodotto);

@@ -96,7 +96,9 @@ try{
         <li><a href="menuutenteloggato.jsp">MENU</a></li>
         <li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
         <li><a href="contatti utente loggato.jsp">CONTATTI</a>
-        <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
+        <form action = "visualizzafatture" method="post">
+        <li><button type ="submit">ORDINI EFFETTUATI</button></li>
+        </form>
         <% System.out.println(session.getId()); %>
       </ul>
                <ul class="side-nav" id="mobile-demo">

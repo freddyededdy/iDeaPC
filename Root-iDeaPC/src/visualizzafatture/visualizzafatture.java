@@ -1,8 +1,9 @@
-package gestioneprodotti;
+package visualizzafatture;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,24 +13,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Prodotto;
-import model.ProdottoDS;
+import model.Carrello;
+import model.Cliente;
+import model.Composizione;
+import model.ComposizioneDs;
+import model.Fattura;
+import model.Ordine;
+import model.OrdineDs;
+import model.fatturaDS;
 
 /**
- * Servlet implementation class EliminaProdottoController
+ * Servlet implementation class visualizzafatture
  */
-@WebServlet("/EliminaProdottoController")
-public class EliminaProdottoController extends HttpServlet {
+@WebServlet("/visualizzafatture")
+public class visualizzafatture extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ProdottoDS prodottods = new ProdottoDS();
+
+	private static OrdineDs ordineds= new OrdineDs();
+
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public EliminaProdottoController() {
+	public visualizzafatture() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -37,22 +47,31 @@ public class EliminaProdottoController extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
-		int id=Integer.parseInt(request.getParameter("id"));
-		try{
-			prodottods.remove(id);
-		}catch(SQLException e){
-
+		HttpSession session = request.getSession();
+		Carrello carrello =((Carrello)session.getAttribute("carrello"));
+		Cliente cliente=((Cliente)session.getAttribute("cliente"));
+		int id_cli=cliente.getId();
+		Collection <Ordine> ordiniCliente = null;
+		Collection<Composizione> composizione= null;
+		Fattura fattura= null;
+		int id_ordine = 0 ;
+		try {
+			ordiniCliente=ordineds.getOrdiniCliente(id_cli);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		};
-		RequestDispatcher view = request.getRequestDispatcher("gestione-prodotto.jsp");
-		view.forward(request, response);
+					}
+			session.setAttribute("ordine", ordiniCliente);
+			RequestDispatcher view = request.getRequestDispatcher("/OrdiniEffettuati.jsp");
+			view.forward(request, response);
+		}
 	}
-}
+
+
