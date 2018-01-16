@@ -88,7 +88,9 @@ pageEncoding="ISO-8859-1"%>
 					<li><a href="Admin.jsp"> Home admin</a></li>
 					<li><a href="gestione-cliente.jsp">gestione clienti</a></li>
 					<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
-					<li><a href="OrdiniEffettuatiTuttiA.jsp">gestione ordine</a></li>
+					     <form action = "visualizzatuttelefattureA" method="post">
+        <li><button type ="submit">ORDINI EFFETTUATI</button></li>
+        </form>
 					<% System.out.println(session.getId()); %>
 				</ul>
         <ul class="side-nav" id="mobile-demo">

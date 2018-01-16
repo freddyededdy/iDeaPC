@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
+
 <%@ page
 	import="model.*, java.util.ArrayList, java.util.Collection, java.util.*, java.text.DecimalFormat"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -40,23 +41,18 @@ $(document).ready(function(){
 
 	<%		
 	try{
-//HttpSession sessione = request.getSession();
-//Carrello carrello=(Carrello)sessione.getAttribute("carrello");
-//Cliente cliente=(Cliente)sessione.getAttribute("cliente");
-//Fattura fattura =(Fattura)sessione.getAttribute("fattura");
-//Collection<Composizione> composizione=(Collection<Composizione>)sessione.getAttribute("composizione");
-//System.out.println(composizione.toString());
-//System.out.println(fattura.toString());
-HttpSession sessione = request.getSession();
-Carrello carrello=(Carrello)sessione.getAttribute("carrello");
+HttpSession sessione= request.getSession();
 Cliente cliente=(Cliente)sessione.getAttribute("cliente");
-String user=cliente.getEmail();
+
 fatturaDS fatturads= new fatturaDS();
 ComposizioneDs composizioneds= new ComposizioneDs();
-int id_cli=cliente.getId();
-Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordine");
+OrdineDs ordineds= new OrdineDs();
+Collection<Ordine> ordiniTutti=(Collection<Ordine>)sessione.getAttribute("ordine");
+
+			
 	%>
-	  
+
+      
 		<header class="mainheader">
      <div class="parallax-container" style="height:400px">
       <div class="parallax"><img src="pizzeria1.png"></div>
@@ -67,14 +63,10 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
 <p style=" text-align:center;"><i class="small material-icons">perm_identity</i> Ciao <%=cliente.getNome() %></p>  
 <div class="btn-group red">
   <a href="Logout.jsp" class="btn btn-primary">Logout</a>
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu " role="menu">
-    <li> <a href ="visualizzadaticliente.jsp"> visualizza dati</a> </li>
-  </ul>
+  
+
 </div>
- <button class="btn btn-primary" onclick = "location.href='carrello.jsp'"><i class="material-icons">shopping_cart</i></button>
+
     </div>
     </div>
 
@@ -90,21 +82,20 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
 		<ul id="nav-mobile" class="left hide-on-med-and-down"
 			style="margin:0px 20px">
 
-			<li><a href="index utente loggato.jsp">HOME</a></li>
-			<li><a href="menu utente loggato.jsp">MENU</a></li>
-			<li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
-			<li><a href="contatti utente loggato.jsp">CONTATTI</a>
-			<li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
-			
+<li><a href="Admin.jsp"> Home admin</a></li>
+					<li><a href="gestione-cliente.jsp">gestione clienti</a></li>
+					<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
+					<li><a href="OrdiniEffettuatiTuttiA.jsp">gestione ordine</a></li>
+			<% System.out.println(session.getId()); %>
 		</ul>
-		<ul class="side-nav" id="mobile-demo">
-			<li><a href="menu utente loggato.jsp">MENU</a></li>
-			<li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
-			<li><a href="contatti utente loggato.jsp">CONTATTI</a>
-			<li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
-		</ul>
+		   <ul class="side-nav" id="mobile-demo">
+<li><a href="Admin.jsp"> Home admin</a></li>
+					<li><a href="gestione-cliente.jsp">gestione clienti</a></li>
+					<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
+					<li><a href="OrdiniEffettuatiTuttiA.jsp">gestione ordine</a></li>
+      </ul>
 	</div>
-	</nav>
+	 </nav>
 
 
 	<br>
@@ -125,21 +116,27 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
 			
 				<div class="MainContent">
 		<div class="content">
-			<div class="topcontent">
-
-      <%
-        		Iterator<?> it = ordiniCliente.iterator();
+			<div class="topcontent">  <%
+        		Iterator<?> it = ordiniTutti.iterator();
 				while (it.hasNext()) {
 					Ordine ordine = (Ordine) it.next();
 					%>
-					<p style="float: left;">
+			<p style="float: left;">
 				ID FATTURA:
 				<%=ordine.getId_ordine()%></p>
 			<p style="float: right;">
 				DATA FATTURA:
-				<%=ordine.getData_ordine() %></p>
+				<%= ordine.getData_ordine() %></p>
 			<br>
-	<table id="myTable">
+			<% 
+					Collection<Composizione> composizione= composizioneds.findbyid_ordine(ordine.getId_ordine());
+					
+					%>
+
+
+
+
+			<table id="myTable">
 
 				<tr class="header">
 					<th style="width: 45%;">PRODOTTO</th>
@@ -147,10 +144,6 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
 					<th style="width: 30%;">PREZZO</th>
 
 				</tr>
-				<% 
-					Collection<Composizione> composizione= composizioneds.findbyid_ordine(ordine.getId_ordine());
-					
-					%>
 				<% Iterator<?> it2 = composizione.iterator();
 			while (it2.hasNext()) {
 			Composizione comp = (Composizione) it2.next();
@@ -162,11 +155,13 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
 				</tr>
 				
 				<%} %>
-				</table>
+
+			</table>
 
 			<b><p style="margin: 4% 70%;">
-				<%Fattura fattura=fatturads.findbyid_ordine(ordine.getId_ordine());%>
-			<%  double impo=fattura.getImponibile(); %>
+					
+					<%Fattura fattura=fatturads.findbyid_ordine(ordine.getId_ordine());%>
+					<%  double impo=fattura.getImponibile(); %>
 					IMPONIBILE:<br>
 					<%=new DecimalFormat("#.##").format(impo)%>
 					<br>
@@ -181,14 +176,16 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
 					  %>
 					TOTALE FATTURA:<BR>
 					<%=new DecimalFormat("#.##").format(totfat)%></p></b>
+					
 						
-		__________________________________________________________________________________________________________________________________
+		____________________________________________________________________________________________________________________________________
 					<br> <br>
 					<br><%} %>
 				
 					</div>
 		</div>
 	</div>
+
 
 
         <footer class="page-footer" style="margin:70px 0px -500px -0px;">
@@ -217,15 +214,13 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
           </div>
         </footer>
 
-	<% 
-		sessione.setAttribute("carrello", carrello);
-		sessione.setAttribute("cliente", cliente);
-		}catch(Exception e){
+	<% sessione.setAttribute("cliente", cliente);
+	   sessione.setAttribute("ordine", ordiniTutti);
+	}catch(Exception e){
 		response.sendRedirect("erroreaccesso.jsp");
-		}%>
+		}
+	%>
 
-
-			
 
 
 </body>
