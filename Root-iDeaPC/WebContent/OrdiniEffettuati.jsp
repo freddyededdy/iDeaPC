@@ -23,6 +23,14 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+	<script type="text/javascript">
+function checklog(){
+	if(q==0){
+		alert("non sei loggato");
+		window.location = "menuutenteloggato.jsp"; } 
+	else return;
+}</script>
+	
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -36,7 +44,7 @@ $(document).ready(function(){
   });
  </script>
 </head>
-<body class="body">
+<body class="body"onLoad="checklog()">
 
 	<%		
 	try{
@@ -83,28 +91,26 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
    
 	</header>
 
-	<nav>
-	<div class="nav-wrapper">
-		<a href="#" data-activates="mobile-demo" class="button-collapse"><i
-			class="material-icons">menu</i></a>
-		<ul id="nav-mobile" class="left hide-on-med-and-down"
-			style="margin:0px 20px">
-
-			<li><a href="index utente loggato.jsp">HOME</a></li>
-			<li><a href="menu utente loggato.jsp">MENU</a></li>
-			<li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
-			<li><a href="contatti utente loggato.jsp">CONTATTI</a>
-			<li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
-			
-		</ul>
-		<ul class="side-nav" id="mobile-demo">
-			<li><a href="menu utente loggato.jsp">MENU</a></li>
-			<li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
-			<li><a href="contatti utente loggato.jsp">CONTATTI</a>
-			<li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
-		</ul>
-	</div>
-	</nav>
+	 <nav>
+    <div class="nav-wrapper">
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down" style="margin:0px 20px">
+        
+               <li><a href="indexLoggato.jsp">HOME</a></li>
+        <li><a href="menuutenteloggato.jsp">MENU</a></li>
+        <li><a href="contattiutente.jsp">CONTATTI</a>
+        <form action = "visualizzafatture" method="post">
+        <li><button type ="submit">ORDINI EFFETTUATI</button></li>
+        </form>
+      </ul>
+               <ul class="side-nav" id="mobile-demo">
+      <li><a href="menuutenteloggato.jsp">MENU</a></li>
+        <li><a href="contattiutente.jsp">CONTATTI</a>
+        <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
+      </ul>
+    </div>
+     
+  </nav>
 
 
 	<br>
@@ -201,10 +207,9 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">LINK</h5>
                 <ul>
-                  		<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
-					<li><a href="gestione-cliente.jsp">gestione clienti</a></li>
-					
-					<li><a href="OrdiniEffettuatiTuttiA.jsp">gestione ordine</a></li>
+                  <li><a class="indexloggato.jsp" href="indexLoggato.jsp">HOME</a></li>
+                  <li><a class="menuutenteloggato.jsp" href="menuutenteloggato.jsp">MENU</a></li>
+                  <li><a class="contattiutente.jsp" href="contattiutente.jsp">CONTATTI</a></li>
                 </ul>
               </div>
             </div>

@@ -124,21 +124,20 @@ HttpSession sessione = request.getSession();
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down" style="margin:0px 20px">
         
-       <li><a href="index utente loggato.jsp">HOME</a></li>
+               <li><a href="indexLoggato.jsp">HOME</a></li>
         <li><a href="menuutenteloggato.jsp">MENU</a></li>
-        <li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
-        <li><a href="contatti utente loggato.jsp">CONTATTI</a>
-        <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
-        
+        <li><a href="contattiutente.jsp">CONTATTI</a>
+        <form action = "visualizzafatture" method="post">
+        <li><button type ="submit">ORDINI EFFETTUATI</button></li>
+        </form>
       </ul>
-              <ul class="side-nav" id="mobile-demo">
-      <li><a href="menu utente loggato.jsp">MENU</a></li>
-        <li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
-        <li><a href="contatti utente loggato.jsp">CONTATTI</a>
+               <ul class="side-nav" id="mobile-demo">
+      <li><a href="menuutenteloggato.jsp">MENU</a></li>
+        <li><a href="contattiutente.jsp">CONTATTI</a>
         <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
-      </ul> 
+      </ul>
     </div>
-  
+     
   </nav>
   
 
@@ -279,17 +278,16 @@ HttpSession sessione = request.getSession();
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">LINK</h5>
                 <ul>
-                  <li><a class="index utente loggato.jsp" href="#!">HOME</a></li>
-                  <li><a class="menu utente loggato.jsp" href="#!">MENU</a></li>
-                  <li><a class="recensioni utente loggato.jsp" href="#!">RECENSIONI</a></li>
-                  <li><a class="contatti utente loggato.jsp" href="#!">CONTATTI</a></li>
+                  <li><a class="indexloggato.jsp" href="indexLoggato.jsp">HOME</a></li>
+                  <li><a class="menuutenteloggato.jsp" href="menuutenteloggato.jsp">MENU</a></li>
+                  <li><a class="contattiutente.jsp" href="contattiutente.jsp">CONTATTI</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2017 Copyright by I.RICCI, V.DELGAUDIO, A.LEONE.
+  
          
             </div>
           </div>
@@ -298,10 +296,10 @@ HttpSession sessione = request.getSession();
 
 
         <% 
-sessione.setAttribute("cliente", cliente);
+			sessione.setAttribute("cliente", cliente);
                sessione.setAttribute("carrello", carrello);
                }catch(Exception e){
-		response.sendRedirect("erroreaccesso.jsp");
+	//	response.sendRedirect("erroreaccesso.jsp");
 		}%>
 
 

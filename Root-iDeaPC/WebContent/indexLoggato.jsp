@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mike's Pizza</title>
+<title>iDeaPc</title>
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,6 +24,10 @@ $(document).ready(function(){
 });
   </script>
   <script>
+  $(document).ready(function(){
+	    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+	    $('.modal').modal();
+	  });
 $(document).ready(function(){
     $('.slider').slider();
   });
@@ -46,19 +50,17 @@ $('.slider').slider('prev');
 <body class="body">
 
 <%	
-try{
 	HttpSession sessione = request.getSession();
-	Carrello carrello=(Carrello)sessione.getAttribute("carrello");
-	if(carrello==null){
-	 
-	  carrello=new Carrello();
+Carrello carrello=(Carrello)sessione.getAttribute("carrello");
+if(carrello==null){
+ 
+  carrello=new Carrello();
 }
-		
-		Cliente cliente=(Cliente)sessione.getAttribute("cliente");
-		
-		
-		
-		
+	
+	Cliente cliente=(Cliente)sessione.getAttribute("cliente");
+	
+	
+	
 	%>
       
 		<header class="mainheader">
@@ -68,6 +70,35 @@ try{
     padding: 2% 2% 2% 2%;
     margin:3% 4%;
     position:relative;">
+    
+    
+    <%
+    
+    if (cliente==null){ %>
+     <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn" href="#modal1">LOGIN</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>LOGIN!</h4>
+          <FORM class="formlogin" ACTION= "LoginController" METHOD="post" target="_self" style=" margin:2% 2%;">
+EMAIL
+<INPUT TYPE="email"  placeholder="inserisci l'email" required NAME="email" style="color:black;"><BR>
+PASSWORD
+<INPUT TYPE="password" placeholder="Inserisci la password" required NAME="pass"><BR>
+<span><INPUT class="btn small"   style="vertical-align:middle" TYPE="SUBMIT" VALUE="LOGIN"> </span>
+
+</FORM>
+ <a href="Registrati.jsp" style="float:inside; margin:0px 0px; ">
+    <button class=" btn" type="submit" >REGISTRATI</button>
+</a>
+    </div>
+
+  </div>
+  <%} else {
+		
+		%>
 <p style=" text-align:center;"><i class="small material-icons">perm_identity</i> Ciao <%=cliente.getNome() %></p>  
 <div class="btn-group red">
   <form action= "LogoutController" method = "post" class="btn btn-primary"  > 
@@ -75,9 +106,6 @@ try{
   </button>
   </form>
     <span class="caret"></span>
-  <ul class="dropdown-menu " role="menu">
-    <li> <a href ="visualizzadaticliente.jsp"> visualizza dati</a> </li>
-  </ul>
 </div>
  <button class="btn btn-primary" onclick = "location.href='carrello.jsp'"><i class="material-icons">shopping_cart</i></button>
     </div>
@@ -85,26 +113,23 @@ try{
 
     </div>
         
-   
+   <%} %>
 	</header>
 	  <nav>
     <div class="nav-wrapper">
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down" style="margin:0px 20px">
         
-               <li><a href="index utente loggato.jsp">HOME</a></li>
+               <li><a href="indexLoggato.jsp">HOME</a></li>
         <li><a href="menuutenteloggato.jsp">MENU</a></li>
-        <li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
-        <li><a href="contatti utente loggato.jsp">CONTATTI</a>
+        <li><a href="contattiutente.jsp">CONTATTI</a>
         <form action = "visualizzafatture" method="post">
         <li><button type ="submit">ORDINI EFFETTUATI</button></li>
         </form>
-        <% System.out.println(session.getId()); %>
       </ul>
                <ul class="side-nav" id="mobile-demo">
       <li><a href="menuutenteloggato.jsp">MENU</a></li>
-        <li><a href="recensioniutenteloggato.jsp">RECENSIONI</a>
-        <li><a href="contatti utente loggato.jsp">CONTATTI</a>
+        <li><a href="contattiutente.jsp">CONTATTI</a>
         <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
       </ul>
     </div>
@@ -188,29 +213,27 @@ try{
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">LINK</h5>
                 <ul>
-                  <li><a class="index utente loggato.jsp" href="#!">HOME</a></li>
-                  <li><a class="menu utente loggato.jsp" href="#!">MENU</a></li>
-                  <li><a class="recensioni utente loggato.jsp" href="#!">RECENSIONI</a></li>
-                  <li><a class="contatti utente loggato.jsp" href="#!">CONTATTI</a></li>
+                  <li><a class="indexloggato.jsp" href="indexLoggato.jsp">HOME</a></li>
+                  <li><a class="menuutenteloggato.jsp" href="menuutenteloggato.jsp">MENU</a></li>
+                  <li><a class="contattiutente.jsp" href="contattiutente.jsp">CONTATTI</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2017 Copyright by I.RICCI, V.DELGAUDIO, A.LEONE.
-         
             </div>
           </div>
         </footer>
 
 <% 
-
+		if(cliente!=null){	
 		sessione.setAttribute("carrello", carrello);
 		sessione.setAttribute("cliente", cliente);
-		}catch(Exception e){
-		response.sendRedirect("erroreaccesso.jsp");
-		}%>
+		}else{
+			
+		}
+		%>
 
 
 

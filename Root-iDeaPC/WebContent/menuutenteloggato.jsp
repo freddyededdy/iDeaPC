@@ -46,6 +46,11 @@
 $(document).ready(function(){
   $('.parallax').parallax();
 });
+$(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+  </script>
   </script>
 
 <script type="text/javascript">
@@ -89,6 +94,20 @@ function add(index , indexp , indexk , indexc){
 
 
 </script>
+<script type ="text/javascript" >
+function islog(cliente){
+	if(cliente==null){
+		 var cells = document.getElementsByClassName("bottonelog");
+		    for (var i = 0; i < cells.length; i++) { 
+		        cells[i].disabled = true;
+		    }
+		    	
+		    }
+			
+	}
+	
+
+</script>
 
   <script type="text/javascript">
 
@@ -109,13 +128,14 @@ function Popup(apri)
 //-->
 </script>
 <head>
-<body class="body">
- <%try{   
- HttpSession sessione = request.getSession();
+ <%
+	 HttpSession sessione = request.getSession();
+ if(sessione!=null){
+	 int indexc = 8000;
            Carrello carrello=(Carrello)sessione.getAttribute("carrello");
            Cliente cliente=(Cliente)sessione.getAttribute("cliente");
-         
        		%> 
+       		<body class="body" onload="islog(<%=cliente%>)">
 		<header class="mainheader">
    <div class="parallax-container" style="height:400px">
       <div class="parallax"><img src="pizzeria1.png"></div>
@@ -123,15 +143,40 @@ function Popup(apri)
     padding: 2% 2% 2% 2%;
     margin:3% 4%;
     position:relative;">
-< <p style=" text-align:center;"><i class="small material-icons">perm_identity</i> Ciao <%=cliente.getNome() %></p>   -
+ <%
+    
+    if (cliente==null){ %>
+     <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn" href="#modal1">LOGIN</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>LOGIN!</h4>
+          <FORM class="formlogin" ACTION= "LoginController" METHOD="post" target="_self" style=" margin:2% 2%;">
+EMAIL
+<INPUT TYPE="email"  placeholder="inserisci l'email" required NAME="email" style="color:black;"><BR>
+PASSWORD
+<INPUT TYPE="password" placeholder="Inserisci la password" required NAME="pass"><BR>
+<span><INPUT class="btn small"   style="vertical-align:middle" TYPE="SUBMIT" VALUE="LOGIN"> </span>
+
+</FORM>
+ <a href="Registrati.jsp" style="float:inside; margin:0px 0px; ">
+    <button class=" btn" type="submit" >REGISTRATI</button>
+</a>
+    </div>
+
+  </div>
+  <%} else {
+		
+		%>
+<p style=" text-align:center;"><i class="small material-icons">perm_identity</i> Ciao <%=cliente.getNome() %></p>  
 <div class="btn-group red">
-  <a href="Logout.jsp" class="btn btn-primary">Logout</a>
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
+  <form action= "LogoutController" method = "post" class="btn btn-primary"  > 
+  <button type="submit" class="btn btn-primary dropdown-toggle">
   </button>
-  <ul class="dropdown-menu " role="menu">
-    <li> <a href ="visualizzadaticliente.jsp"> visualizza dati</a> </li>
-  </ul>
+  </form>
+    <span class="caret"></span>
 </div>
  <button class="btn btn-primary" onclick = "location.href='carrello.jsp'"><i class="material-icons">shopping_cart</i></button>
     </div>
@@ -139,24 +184,23 @@ function Popup(apri)
 
     </div>
         
-   
+   <%} %>
 	</header>
 	  <nav>
     <div class="nav-wrapper">
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down" style="margin:0px 20px">
         
-         <li><a href="index utente loggato.jsp">HOME</a></li>
+               <li><a href="indexLoggato.jsp">HOME</a></li>
         <li><a href="menuutenteloggato.jsp">MENU</a></li>
-        <li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
-        <li><a href="contatti utente loggato.jsp">CONTATTI</a>
-        <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
-        
+        <li><a href="contattiutente.jsp">CONTATTI</a>
+        <form action = "visualizzafatture" method="post">
+        <li><button type ="submit">ORDINI EFFETTUATI</button></li>
+        </form>
       </ul>
                <ul class="side-nav" id="mobile-demo">
       <li><a href="menuutenteloggato.jsp">MENU</a></li>
-        <li><a href="recensioni utente loggato.jsp">RECENSIONI</a>
-        <li><a href="contatti utente loggato.jsp">CONTATTI</a>
+        <li><a href="contattiutente.jsp">CONTATTI</a>
         <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
       </ul>
     </div>
@@ -218,7 +262,6 @@ function Popup(apri)
 					int index=0;
 				    int indexp = 1000;
 				    int indexk = 5000;
-				    int indexc = 8000;
 					while (it.hasNext()) {
 						
 						Prodotto pr = (Prodotto) it.next();
@@ -244,7 +287,7 @@ function Popup(apri)
    <form action="AggiungialCarrello" method="post">
    <input type="hidden" name="quantita" id="<%=indexp%>" value = "0" />
       <input type="hidden" name="id_prod" value="<%=pr.getId_prod()%>" />
-      <button type="submit" id = "<%=indexc%>" class="waves-effect waves-light btn" >CARRELLO</button> </form></td>
+      <button type="submit" id = "<%=indexc%>" class="bottonelog" >CARRELLO</button> </form></td>
 						
        
           </tr>
@@ -277,29 +320,30 @@ function Popup(apri)
               </div>
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">LINK</h5>
-                <ul>
-                  <li><a class="index utente loggato.jsp" href="#!">HOME</a></li>
-                  <li><a class="menuutenteloggato.jsp" href="#!">MENU</a></li>
-                  <li><a class="recensioni utente loggato.jsp" href="#!">RECENSIONI</a></li>
-                  <li><a class="contatti utente loggato.jsp" href="#!">CONTATTI</a></li>
+                 <ul>
+                  <li><a class="indexloggato.jsp" href="indexLoggato.jsp">HOME</a></li>
+                  <li><a class="menuutenteloggato.jsp" href="menuutenteloggato.jsp">MENU</a></li>
+                  <li><a class="contattiutente.jsp" href="contattiutente.jsp">CONTATTI</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="footer-copyright">
-            <div class="container">
+            <div class="container" >
             © 2017 Copyright by I.RICCI, V.DELGAUDIO, A.LEONE.
          
             </div>
           </div>
         </footer>
 
-<%
- 			sessione.setAttribute("cliente", cliente);
-                sessione.setAttribute("carrello", carrello);
-                }catch(Exception e){
- 		response.sendRedirect("erroreaccesso.jsp");
- 		}%> 
+<% sessione.setAttribute("cliente", cliente);
+sessione.setAttribute("carrello", carrello);	 
+
+ 			
+	 }else{
+		 
+	 }
+ 		%> 
 
 </body>
 </html>
