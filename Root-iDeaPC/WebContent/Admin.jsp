@@ -61,6 +61,7 @@ pageEncoding="ISO-8859-1"%>
     padding: 2% 2% 2% 2%;
     margin:3% 4%;
     position:relative;">
+    
 <p style=" text-align:center;"><i class="small material-icons">perm_identity</i> Ciao <%=cliente.getNome() %></p>  
 <div class="btn-group red">
   <a href="Logout.jsp" class="btn btn-primary">Logout</a>

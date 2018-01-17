@@ -57,21 +57,26 @@ public class visualizzafatture extends HttpServlet {
 		HttpSession session = request.getSession();
 		Carrello carrello =((Carrello)session.getAttribute("carrello"));
 		Cliente cliente=((Cliente)session.getAttribute("cliente"));
-		int id_cli=cliente.getId();
-		Collection <Ordine> ordiniCliente = null;
-		Collection<Composizione> composizione= null;
-		Fattura fattura= null;
-		int id_ordine = 0 ;
-		try {
-			ordiniCliente=ordineds.getOrdiniCliente(id_cli);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-					}
+		if(cliente==null){
+			RequestDispatcher view = request.getRequestDispatcher("/indexLoggato.jsp");
+			view.forward(request, response);
+		}else{
+			int id_cli=cliente.getId();
+			Collection <Ordine> ordiniCliente = null;
+			Collection<Composizione> composizione= null;
+			Fattura fattura= null;
+			int id_ordine = 0 ;
+			try {
+				ordiniCliente=ordineds.getOrdiniCliente(id_cli);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			session.setAttribute("ordine", ordiniCliente);
 			RequestDispatcher view = request.getRequestDispatcher("/OrdiniEffettuati.jsp");
 			view.forward(request, response);
 		}
 	}
+}
 
 
