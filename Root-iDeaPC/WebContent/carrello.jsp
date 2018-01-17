@@ -104,17 +104,14 @@ HttpSession sessione = request.getSession();
     margin:3% 4%;
     position:relative;">
 <p style=" text-align:center;"><i class="small material-icons">perm_identity</i> Ciao <%=cliente.getNome() %></p>  
-<div class="btn-group red">
-  <a href="Logout.jsp" class="btn btn-primary">Logout</a>
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+  <form action= "LogoutController" method = "post" class="btn btn-primary" style= "padding:0" > 
+  <button class="btn btn-primary" type = "submit"> Logout </button>
+  </form>
     <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu " role="menu">
-    <li> <a href ="visualizzadaticliente.jsp"> visualizza dati</a> </li>
-  </ul>
-</div>
- <button class="btn btn-primary" onclick ="location.href='carrello.jsp'"><i class="material-icons" >shopping_cart</i></button>
+ <button class="btn btn-primary" onclick = "location.href='carrello.jsp'"><i class="material-icons">shopping_cart</i></button>
     </div>
+    </div>
+
     </div>
         
    

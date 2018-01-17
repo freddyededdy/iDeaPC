@@ -59,27 +59,25 @@ confirm_password.onkeyup = validatePassword;
         
    
 	</header>
-	  <nav>
+	 <nav>
     <div class="nav-wrapper">
-
-			  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="center hide-on-med-and-down" style="margin:0px 20px">
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down" style="margin:0px 20px">
         
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="menu.jsp">MENU</a></li>
-        <li><a href="recensioni.jsp">RECENSIONI</a></li>
-        <li><a href="contatti.jsp">CONTATTI</a></li>
-         
-        
+               <li><a href="indexLoggato.jsp">HOME</a></li>
+        <li><a href="menuutenteloggato.jsp">MENU</a></li>
+        <li><a href="contattiutente.jsp">CONTATTI</a>
+        <form action = "visualizzafatture" method="post">
+        <li><button type ="submit">ORDINI EFFETTUATI</button></li>
+        </form>
       </ul>
                <ul class="side-nav" id="mobile-demo">
-         <li><a href="index.html">HOME</a></li>
-        <li><a href="menu.jsp">MENU</a></li>
-        <li><a href="recensioni.jsp">RECENSIONI</a></li>
-        <li><a href="contatti.jsp">CONTATTI</a></li>
+      <li><a href="menuutenteloggato.jsp">MENU</a></li>
+        <li><a href="contattiutente.jsp">CONTATTI</a>
+        <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
       </ul>
     </div>
-
+     
   </nav>
   
 
@@ -190,16 +188,17 @@ function checkcel(){
                 <ul>
                   
                    <li><a class="grey-text text-lighten-3" href="index.html">HOME</a></li>
-        <li><a class="grey-text text-lighten-3" href="menu.jsp">MENU</a></li>
-        <li><a class="grey-text text-lighten-3" href="recensioni.jsp">RECENSIONI</a></li>
-        <li><a  class="grey-text text-lighten-3" href="contatti.jsp">CONTATTI</a></li>
+  <ul>
+                  <li><a class="indexloggato.jsp" href="indexLoggato.jsp">HOME</a></li>
+                  <li><a class="menuutenteloggato.jsp" href="menuutenteloggato.jsp">MENU</a></li>
+                  <li><a class="contattiutente.jsp" href="contattiutente.jsp">CONTATTI</a></li>
+                </ul>
                 </ul>
               </div>
             </div>
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2017 Copyright by I.RICCI, V.DELGAUDIO, A.LEONE.
             <a class="grey-text text-lighten-4 right" href="#!">ALTRI LINK</a>
             </div>
           </div>

@@ -39,7 +39,7 @@ public class LogoutController extends HttpServlet {
 		doGet(request, response);
 		HttpSession sessione = request.getSession();
 		 sessione.invalidate();
-		 response.sendRedirect("index.html");
+		 response.sendRedirect("indexLoggato.jsp");
 	}
 
 }

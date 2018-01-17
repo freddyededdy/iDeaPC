@@ -171,13 +171,10 @@ PASSWORD
 		
 		%>
 <p style=" text-align:center;"><i class="small material-icons">perm_identity</i> Ciao <%=cliente.getNome() %></p>  
-<div class="btn-group red">
-  <form action= "LogoutController" method = "post" class="btn btn-primary"  > 
-  <button type="submit" class="btn btn-primary dropdown-toggle">
-  </button>
+  <form action= "LogoutController" method = "post" class="btn btn-primary" style= "padding:0" > 
+  <button class="btn btn-primary" type = "submit"> Logout </button>
   </form>
     <span class="caret"></span>
-</div>
  <button class="btn btn-primary" onclick = "location.href='carrello.jsp'"><i class="material-icons">shopping_cart</i></button>
     </div>
     </div>
