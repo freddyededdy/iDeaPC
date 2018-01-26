@@ -23,7 +23,8 @@ import model.OrdineDs;
 import model.fatturaDS;
 
 /**
- * Servlet implementation class visualizzafatture
+ * Visualizzafatture
+ * Servlet che visualizza le fatture del cliente che è loggato
  */
 @WebServlet("/visualizzafatture")
 public class visualizzafatture extends HttpServlet {

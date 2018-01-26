@@ -17,7 +17,8 @@ import model.Prodotto;
 import model.ProdottoDS;
 
 /**
- * Servlet implementation class AggiungialCarrello
+ * AggiungialCarrello
+ * Servlet che aggiunge i prodotti al carrello
  */
 @WebServlet("/AggiungialCarrello")
 public class AggiungialCarrello extends HttpServlet {

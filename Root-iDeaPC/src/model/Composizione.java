@@ -1,12 +1,27 @@
+/*
+* Composizione
+* Questa classe modella l'ogetto composizione dato da una relazione n a n sul database
+*/
 package model;	
 
 public class Composizione {
 	private int id_ordne, id_prod, quantita;
 	private double prezzo;
 	private String nome_p;
+	/**
+	 * Costruttore vuoto della classe composizione
+	 */
 public Composizione(){
 	
 }
+/**
+ * Costruttore della classe composizone 
+ * @param id dell'ordine
+ * @param id del prodotto ordinato
+ * @param quantita di prodotto acquistato
+ * @param il prezzo del prodotto acquistato
+ * @param nome del prodotto acquistato
+ */
 public Composizione(int id_o, int id_p, double p , int q, String nome_p){
 	this.id_ordne=id_o;
 	this.id_prod=id_p;

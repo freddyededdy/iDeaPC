@@ -16,7 +16,8 @@ import model.Prodotto;
 import model.ProdottoDS;
 
 /**
- * Servlet implementation class VisualizzaProdottoController
+ * VisualizzaProdottoController
+ * Servlet che visualizza tutti i prodotti inseriti nel database
  */
 @WebServlet("/VisualizzaProdottoController")
 public class VisualizzaProdottoController extends HttpServlet {

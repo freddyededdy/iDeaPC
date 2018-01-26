@@ -14,8 +14,12 @@ import javax.servlet.http.HttpSession;
 import model.Cliente;
 import model.ClienteDS;
 
-/**
- * Servlet implementation class LoginController
+/** 
+ * LoginController
+ * Servlet per il login di un cliente o di un admin
+ * nel caso di un admin le credenziali sono:
+ * username: ADMIN/admin
+ * password: root
  */
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
@@ -49,7 +53,7 @@ public class LoginController extends HttpServlet {
 		String user=request.getParameter("email");
 		String pass=request.getParameter("pass");
 		
-		if(user.equals("Admin@admin.com")|| user.equals("admin@admin.com") && pass.equals("root")){
+		if(user.equals("admin")|| user.equals("ADMIN") && pass.equals("root")){
 			 current = new Cliente();
 			 sessione.setAttribute("cliente", current);
 			RequestDispatcher view = request.getRequestDispatcher("/Admin.jsp");

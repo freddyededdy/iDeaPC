@@ -1,3 +1,7 @@
+/*
+* Prodotto
+* Questa classe modella l'ogetto prodotto
+*/
 package model;
 public class Prodotto {
 private int id_prod;
@@ -5,6 +9,15 @@ private String nome, descrizione;
 private double prezzo;
 private int quantita;
 private String immagine;
+/**
+ * costruttore che mi crea un prodotto
+ * @param id prodotto
+ * @param nome del prodotto
+ * @param descrizione del prodotto
+ * @param prezzo del prodotto
+ * @param quantita del prodotto 
+ * @param stringa, immagine del prodotto (path dell'immagine)
+ */
 public Prodotto( int id, String n, String d, double p, String im, int q){
 	this.id_prod = id;
 	this.nome = n;
@@ -13,10 +26,23 @@ public Prodotto( int id, String n, String d, double p, String im, int q){
 	this.quantita= q;
 	this.immagine=im;
 	}
+/**
+ * costruttore vuoto della classe prodotto
+ */
 public Prodotto() {
 	// TODO Auto-generated constructor stub
 }
 private int quantitaCarrello;
+/**
+ * Coatruttore che mi crea un prodotto con anche la quantita del carrello 
+ * @param id prodotto
+ * @param nome del prodotto
+ * @param descrizione del prodotto
+ * @param prezzo del prodotto
+ * @param quantita del prodotto 
+ * @param stringa, immagine del prodotto (path dell'immagine)
+ * @param quantita del carrello
+ */
 public Prodotto(int id, String n, String d, double p, String im, int q, int quantcarrello){
 	this.id_prod = id;
 	this.nome = n;

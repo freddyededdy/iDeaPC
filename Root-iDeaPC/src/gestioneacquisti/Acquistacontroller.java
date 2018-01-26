@@ -26,8 +26,10 @@ import model.ProdottoDS;
 import model.fatturaDS;
 
 /**
- * Servlet implementation class Acquistacontroller
+ * Acquistacontroller 
+ * servlet che controlla gli oggetti nel carrello e procede con l'acquisto, creando un ordine e di conseguenza una fattura e una composizione 
  */
+
 @WebServlet("/Acquistacontroller")
 public class Acquistacontroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -18,7 +18,8 @@ import model.Ordine;
 import model.OrdineDs;
 
 /**
- * Servlet implementation class visualizzatuttelefattureA
+ * VisualizzatuttelefattureA
+ * Servletche visualizza tutte le fatture di tutti i clienti
  */
 @WebServlet("/visualizzatuttelefattureA")
 public class visualizzatuttelefattureA extends HttpServlet {

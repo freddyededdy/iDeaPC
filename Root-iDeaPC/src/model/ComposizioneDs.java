@@ -1,3 +1,7 @@
+/*
+* Composizione
+* Questa classe serve per la connessione sul database relativa all'oggetto composizione 
+*/
 package model;
 import com.mysql.jdbc.Driver;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
@@ -33,7 +37,10 @@ public class ComposizioneDs implements Model_Interface<Composizione>{
 	}
 
 	private static final String TABLE_NAME = "composizione";
-
+	/**
+	 * Metodo che inserisce la composizione (realzione n a n tra ordine e prodotto )
+	 * @param un Composizione
+	 */
 	@Override
 	public synchronized void insert(Composizione composizione) throws SQLException {
 		Connection connection = null;
@@ -65,13 +72,13 @@ public class ComposizioneDs implements Model_Interface<Composizione>{
 		}	
 
 	}
-
+	
 	@Override
 	public synchronized void update(Composizione entity) throws SQLException {
 		// TODO Auto-generated method stub
 
 	}
-
+	
 	@Override
 	public synchronized boolean remove(int id) throws SQLException {
 		// TODO Auto-generated method stub
@@ -89,6 +96,11 @@ public class ComposizioneDs implements Model_Interface<Composizione>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	/**
+	 * Metodo che mi ritorna tutte le con uno specifico id prodotto
+	 * @param id del prodotto
+	 * @return Collection di composizone
+	 */
 	public synchronized Collection<Composizione> findbyid_ordine(int id_ordine) throws SQLException {
 		
 		Connection connection = null;

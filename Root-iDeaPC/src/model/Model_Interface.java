@@ -1,3 +1,7 @@
+/*
+* Model_interface
+* In questa interfaccia vi sono le firme dei metodi che servono nell'inserimento, update, remove, findbykey, findall
+*/
 package model;
 
 import java.sql.SQLException;

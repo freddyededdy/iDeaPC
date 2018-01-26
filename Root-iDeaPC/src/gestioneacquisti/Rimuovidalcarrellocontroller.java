@@ -17,7 +17,8 @@ import model.Prodotto;
 import model.ProdottoDS;
 
 /**
- * Servlet implementation class Rimuovidalcarrellocontroller
+ * RimuovidalCarrellocontroller
+ * Servlet che rimuove l'oggetto selezionato dal carello
  */
 @WebServlet("/Rimuovidalcarrellocontroller")
 public class Rimuovidalcarrellocontroller extends HttpServlet {

@@ -1,8 +1,19 @@
+/*
+* Ordine
+* Questa classe modella l'oggetto ordine 
+*/
 package model;
 public class Ordine {
 private int id_ordine,id_cli;		
 private String Stato_pagamento, descrizione;
 private java.sql.Timestamp data_ordine;
+/**
+ * costruttore che crea un ordine 
+ * @param id ordine 
+ * @param stato pagamento (se il pagamento è andato a buon fine o no)
+ * @param descrizione dell'ordine
+ * @param data dell'ordine  
+ */
 public Ordine(int id_ord, String stato_p , int id_c,String des){
 	this.id_cli = id_c;
 	this.id_ordine = id_ord;
@@ -11,6 +22,9 @@ public Ordine(int id_ord, String stato_p , int id_c,String des){
 	this.descrizione = des;
 	this.data_ordine=null;
 	}
+/**
+ * Coatruttore che crea un ordine vuoto
+ */
 public Ordine(){	
 }
 public int getId_ordine() {

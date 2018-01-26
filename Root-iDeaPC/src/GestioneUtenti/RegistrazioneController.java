@@ -17,7 +17,8 @@ import model.Cliente;
 import model.ClienteDS;
 
 /**
- * Servlet implementation class RegistrazioneController
+ * RegistrazioneController 
+ * Servlet per la registrazione di un cliente controlla i capi inserti e crea un nuovo cliente
  */
 @WebServlet("/RegistrazioneController")
 public class RegistrazioneController extends HttpServlet {

@@ -1,3 +1,8 @@
+/*
+* Cliente
+* Questa classe modella l'ogetto cliente
+*/
+
 package model;
 import java.sql.Date;
 import java.util.Calendar;
@@ -9,7 +14,23 @@ public class Cliente {
 	private int id;
 	private String n_carta=null;
 	private String tipo_carta=null;
+	/**
+	 * Costruttore vuoto della classe Cliente
+	 */
 	public Cliente(){}
+	/**
+	 * Costruttore della classe Cliente
+	 * @param id 
+	 * @param nome 
+	 * @param cognome
+	 * @param citta
+	 * @param via
+	 * @param numero civico
+	 * @param email
+	 * @param password
+	 * @param cellulare
+	 * @param data di nascita del cliente
+	 */
 	public Cliente(int i, String n, String c , Date d, String ci,  String v, String nc, String ce, String em, String pass){
 		this.id = i;
 		this.nome = n;

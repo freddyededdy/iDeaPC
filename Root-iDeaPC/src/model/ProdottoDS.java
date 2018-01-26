@@ -1,3 +1,7 @@
+/*
+* Composizione
+* Questa classe serve per la connessione sul database relativa all'oggetto prodotto
+*/
 package model;
 import java.sql.Driver;
 import java.sql.Connection;
@@ -29,6 +33,10 @@ static {
 	}
 }
 private static final String TABLE_NAME = "prodotto";
+/**
+ * Metodo che inserisce un prodotto nel database
+ * @param Il prodotto da inserire 
+ */
 	@Override
 	public synchronized void  insert(Prodotto prodotto) throws SQLException {
 		Connection connection = null;
@@ -61,7 +69,11 @@ private static final String TABLE_NAME = "prodotto";
 }
 
 
-
+	/**
+	 * Metodo che rimuove un prodotto dal database
+	 * @param l'id del prodotto da rimuovere
+	 * @return una variabile booleana result (0 se non ha eseguito niente, altro altrimenti)
+	 */
 	@Override
 	public synchronized boolean remove(int id) throws SQLException {
 		Connection connection = null;
@@ -89,7 +101,11 @@ private static final String TABLE_NAME = "prodotto";
 		}
 		return (result != 0);
 	}
-
+	/**
+	 * Metodo che cerca nel database un prodotto per id 
+	 * @param l'id del prodotto da cercare
+	 * @return il prodotto trovato
+	 */
 	@Override
 	public synchronized Prodotto findByKey(int id) throws SQLException {
 		Connection connection = null;
@@ -127,7 +143,10 @@ private static final String TABLE_NAME = "prodotto";
 		}
 		return prodotto;
 	}
-
+	/**
+	 * Metodo che ritorna tutti i prodotti nel database 
+	 * @return una collection di prodotti
+	 */
 	@Override
 	public synchronized Collection<Prodotto> findAll() throws SQLException {
 		Connection connection = null;
@@ -170,7 +189,10 @@ private static final String TABLE_NAME = "prodotto";
 		}
 		return prodotto;
 	}
-
+	/**
+	 * Metodo che aggiorna un prodotto nel database
+	 * @param il prodotto da aggiornare
+	 */
 		@Override
 		public synchronized void update(Prodotto prodotto) throws SQLException {
 			Connection connection = null;

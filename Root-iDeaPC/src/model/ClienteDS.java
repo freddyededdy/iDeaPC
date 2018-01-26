@@ -1,3 +1,7 @@
+/*
+ * ClienteDs
+ * Questa classe serve per la connessione sul database relativa all'oggetto cliente
+ */
 package model;
 import com.mysql.jdbc.Driver;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
@@ -34,8 +38,11 @@ public class ClienteDS implements Model_Interface<Cliente>{
 
 	private static final String TABLE_NAME = "cliente";
 
-	
 
+	/**
+	 * metodo che inserisce un cliente nel database
+	 * @param un oggetto cliente da inserire 
+	 */
 	@Override
 	public synchronized void  insert(Cliente cliente) throws SQLException {
 		Connection connection = null;
@@ -73,6 +80,10 @@ public class ClienteDS implements Model_Interface<Cliente>{
 			}
 		}
 	}
+	/**
+	 * Metodo che aggiorna un campo del'oggetto cliente 
+	 * @param Cliente da aggiornare
+	 */
 
 	@Override
 	public synchronized void update(Cliente cliente) throws SQLException {
@@ -82,7 +93,7 @@ public class ClienteDS implements Model_Interface<Cliente>{
 
 
 		try {
-			
+
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(updateSql);
 			preparedStatement.setString(1, cliente.getNome());
@@ -113,7 +124,11 @@ public class ClienteDS implements Model_Interface<Cliente>{
 
 
 	}
-
+	/**
+	 * Metodo che rimuove un cliente dal database
+	 * @param l'id del cliente che devo rimuovere
+	 * @return una variabile booleana result (0 se non ha eseguito niente, altro altrimenti)
+	 */
 	@Override
 	public synchronized boolean remove(int id) throws SQLException {
 		Connection connection = null;
@@ -142,6 +157,11 @@ public class ClienteDS implements Model_Interface<Cliente>{
 		return (result != 0);
 
 	}
+	/**
+	 * Metodo che cerca un cliente tramite la chiave primaria del cliente 
+	 * @param id del cliente da cercare
+	 * @return cliente , ovvero l'oggetto cliente trovato 
+	 */
 
 	@Override
 	public synchronized Cliente findByKey(int id) throws SQLException {
@@ -154,7 +174,7 @@ public class ClienteDS implements Model_Interface<Cliente>{
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE id_cli = ?";
 
 		try {
-		
+
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, id);
@@ -162,8 +182,8 @@ public class ClienteDS implements Model_Interface<Cliente>{
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-			
-			
+
+
 				cliente.setId(rs.getInt("id_cli"));
 				cliente.setNome(rs.getString("Nome"));
 				cliente.setCognome(rs.getString("Cognome"));
@@ -177,7 +197,7 @@ public class ClienteDS implements Model_Interface<Cliente>{
 				cliente.setTipo_carta(rs.getString("t_carta"));
 				cliente.setN_carta(rs.getString("n_carta"));
 			}
-			
+
 
 		} finally {
 			try {
@@ -191,7 +211,11 @@ public class ClienteDS implements Model_Interface<Cliente>{
 		return cliente;
 	}
 
-
+	/**
+	 * metodo che cerca il cliente per email
+	 * @param Stringa email del cliente da cercare
+	 * @return cliente , ovvero l'oggetto cliente trovato 
+	 */
 	public  synchronized Cliente findByMail(String email) throws SQLException {
 
 		Connection connection = null;
@@ -202,7 +226,7 @@ public class ClienteDS implements Model_Interface<Cliente>{
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE email= ?";
 
 		try {
-			
+
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1, email);
@@ -210,8 +234,8 @@ public class ClienteDS implements Model_Interface<Cliente>{
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				
-				
+
+
 				cliente.setId(rs.getInt("id_cli"));
 				cliente.setNome(rs.getString("Nome"));
 				cliente.setCognome(rs.getString("Cognome"));
@@ -225,7 +249,7 @@ public class ClienteDS implements Model_Interface<Cliente>{
 				cliente.setTipo_carta(rs.getString("t_carta"));
 				cliente.setN_carta(rs.getString("n_carta"));
 			}
-			
+
 
 		} finally {
 			try {
@@ -239,18 +263,23 @@ public class ClienteDS implements Model_Interface<Cliente>{
 		return cliente;
 	}
 
+	/**
+	 * Metodo che mi cerca tutti i clienti
+	 * @return una collection di clienti 
+	 */
+
 	public synchronized Collection<Cliente> findAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		Collection<Cliente> cli = new LinkedList<Cliente>();
-		
-		
+
+
 		String selectSQL = "SELECT * FROM " + TABLE_NAME ;
-		
+
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			
+
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
@@ -278,12 +307,16 @@ public class ClienteDS implements Model_Interface<Cliente>{
 					connection.close();
 			}
 		}
-		
+
 		return cli;
 	}
-
+	/**
+	 * Metodo che mi cerca il cliente con quell'username e password
+	 * @param una stringa contenente l'username e una stringa contenete la password 
+	 * @return boolean true se il cliente con quell'username e password esiste false altrimenti
+	 */
 	public synchronized boolean findUserEPass(String user, String pass) throws SQLException{
-		
+
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE email = ? && pass= ?";
@@ -297,7 +330,7 @@ public class ClienteDS implements Model_Interface<Cliente>{
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				
+
 				return true;
 			}
 		} finally {
@@ -309,10 +342,15 @@ public class ClienteDS implements Model_Interface<Cliente>{
 					connection.close();
 			}
 		}
-		
+
 		return false;
 
 	}
+	/**
+	 * Metodo che mi cerca se quell'email è gia presente
+	 * @param la stringa contente l'email da controllare
+	 * @return boolean true se l'email è presente, false altrimenti
+	 */
 	public synchronized boolean findEmailPresente(String user) throws SQLException{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -322,7 +360,7 @@ public class ClienteDS implements Model_Interface<Cliente>{
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE email = ?";
 
 		try {
-			
+
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1, user);
@@ -346,45 +384,8 @@ public class ClienteDS implements Model_Interface<Cliente>{
 	}
 
 
-	public synchronized boolean findAdministrator(String user) throws SQLException{
 
 
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
 
-		String tipo=null;
-
-
-		String selectSQL = "SELECT tipo FROM " + TABLE_NAME + " WHERE email = ?";
-
-		try {
-
-			connection = ds.getConnection();
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, user);
-
-
-			ResultSet rs = preparedStatement.executeQuery();
-
-			while (rs.next()) {
-				tipo=rs.getString("tipo");
-			
-				if(tipo.equalsIgnoreCase("A")){
-					return true;
-				}else return false;
-			}
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				if (connection != null)
-					connection.close();
-			}
-		}
-		return false;
-	}
-
-	
 }
 

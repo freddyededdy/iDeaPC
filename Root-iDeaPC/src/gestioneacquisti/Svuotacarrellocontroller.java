@@ -17,7 +17,8 @@ import model.Prodotto;
 import model.ProdottoDS;
 
 /**
- * Servlet implementation class Svuotacarrellocontroller
+ * Svuotacarrellocontroller
+ * Servlet che elimina tutti gli oggetti dal carrello 
  */
 @WebServlet("/Svuotacarrellocontroller")
 public class Svuotacarrellocontroller extends HttpServlet {

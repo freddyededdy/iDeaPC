@@ -23,7 +23,8 @@ import model.Prodotto;
 import model.ProdottoDS;
 
 /**
- * Servlet implementation class ModificaProdottoController
+ * ModificaProdottoController
+ * Servlet che modifica un qualsisi capo del prodotto
  */
 @WebServlet("/ModificaProdottoController")
 public class ModificaProdottoController extends HttpServlet {

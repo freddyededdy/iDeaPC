@@ -23,7 +23,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 
 /**
- * Servlet implementation class InserimentoProdottoController
+ * InserimentoProdottoController
+ * Servlet che inserisce un prodotto nel database
  */
 @WebServlet("/InserimentoProdottoController")
 public class InserimentoProdottoController extends HttpServlet {

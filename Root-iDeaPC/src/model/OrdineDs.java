@@ -1,3 +1,7 @@
+/*
+* Composizione
+* Questa classe serve per la connessione sul database relativa all'oggetto ordine
+*/
 package model;
 import com.mysql.jdbc.Driver;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
@@ -32,6 +36,10 @@ public class OrdineDs implements Model_Interface<Ordine> {
 
 	private static final String TABLE_NAME = "ordine";
 	@Override
+	/**
+	 * Metodo che inserisce un ordine nel database
+	 * @param l'ordine da inserire
+	 */
 	public synchronized void insert(Ordine ordine) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -62,6 +70,10 @@ public class OrdineDs implements Model_Interface<Ordine> {
 			}
 		}		
 	}
+	/**
+	 * Metodo che mi aggiorna un ordine 
+	 * @param l'ordine da aggiornare
+	 */
 
 	@Override
 	public synchronized void update(Ordine ordine) throws SQLException {
@@ -91,6 +103,10 @@ public class OrdineDs implements Model_Interface<Ordine> {
 
 
 	}
+	/**
+	 * Metodo che mi rimuove un ordine 
+	 * @param id dell'ordine da rimuovere
+	 */
 
 	@Override
 	public synchronized boolean remove(int id) throws SQLException {
@@ -119,7 +135,10 @@ public class OrdineDs implements Model_Interface<Ordine> {
 		}
 		return (result != 0);
 	}
-
+	/**
+	 * Metodo che cerca un ordine in abse all'id
+	 * @param id dell'ordine da cercare
+	 */
 	@Override
 	public synchronized Ordine findByKey(int id) throws SQLException {
 		Connection connection = null;
@@ -157,7 +176,10 @@ public class OrdineDs implements Model_Interface<Ordine> {
 		return ordine;
 	}
 
-
+	/**
+	 * Metodo che mi torna un collection di tutti gli ordini 
+	 * @return collection ordine
+	 */
 	public synchronized Collection<Ordine> findAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -195,6 +217,10 @@ public class OrdineDs implements Model_Interface<Ordine> {
 
 		return ordiniTutti;
 	}
+	/**
+	 * Metodo che mi cerca l'id dell l'ordine con id massimo
+	 * @return id massimo dell'ordine 
+	 */
 	public synchronized int findMaxID() throws SQLException{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -222,7 +248,12 @@ public class OrdineDs implements Model_Interface<Ordine> {
 		return id_ordine;
 
 	}
-
+	
+	/**
+	 * Metodo che mi torna una collection di ordini con uno specifico id cliente 
+	 * @param id del cliente 
+	 * @return collection di ordine 
+	 */
 	public synchronized Collection<Ordine> getOrdiniCliente(int id_cliente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;

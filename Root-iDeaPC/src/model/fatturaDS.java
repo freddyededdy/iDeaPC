@@ -1,3 +1,7 @@
+/*
+ * Composizione
+ * Questa classe serve per la connessione sul database relativa all'oggetto fattura
+ */
 package model;
 import com.mysql.jdbc.Driver;
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
@@ -32,6 +36,11 @@ public class fatturaDS implements Model_Interface<Fattura> {
 	}
 
 	private static final String TABLE_NAME = "fattura";
+
+	/**
+	 *meotodo che inserisce nel database una fattura
+	 * @param fattura da inserire
+	 */
 	@Override
 	public synchronized void insert(Fattura fattura) throws SQLException {
 		Connection connection = null;
@@ -63,10 +72,9 @@ public class fatturaDS implements Model_Interface<Fattura> {
 			}
 		}		
 	}
-
 	@Override
 	public synchronized void update(Fattura fattura) throws SQLException {
-	return;
+		return;
 	}
 
 	@Override
@@ -97,6 +105,11 @@ public class fatturaDS implements Model_Interface<Fattura> {
 		return (result != 0);
 	}
 
+	/**
+	 * Metodo che cerca una fattura con uno specifico id
+	 * @param id della fattura da cercare
+	 */
+
 	@Override
 	public synchronized Fattura findByKey(int id) throws SQLException {
 		Connection connection = null;
@@ -119,7 +132,7 @@ public class fatturaDS implements Model_Interface<Fattura> {
 				fattura.setImponibile(rs.getFloat("totale_imponibile"));
 				fattura.setTotale(rs.getFloat("totale_fattura"));
 			}
-			
+
 
 		} finally {
 			try {
@@ -138,6 +151,10 @@ public class fatturaDS implements Model_Interface<Fattura> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	/**
+	 * metodo che cerca la fattura con l'id massimo
+	 */
 	public synchronized int findMaxID() throws SQLException{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -146,7 +163,7 @@ public class fatturaDS implements Model_Interface<Fattura> {
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			
+
 
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {
@@ -161,20 +178,24 @@ public class fatturaDS implements Model_Interface<Fattura> {
 					connection.close();
 			}
 		}
-	
+
 		return id_fattura;
-		
+
 	}
-	
-public synchronized Fattura findbyid_ordine(int id_ordine) throws SQLException {
-		
+
+	/**
+	 * Metodo che cerca la fattura con l'id dell'ordine 
+	 * @param id dell'ordine 
+	 */
+	public synchronized Fattura findbyid_ordine(int id_ordine) throws SQLException {
+
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		Fattura fattura= new Fattura();
-		
-		
+
+
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " where id_ordine=?";
-		
+
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
@@ -196,11 +217,11 @@ public synchronized Fattura findbyid_ordine(int id_ordine) throws SQLException {
 					connection.close();
 			}
 		}
-		
+
 		return fattura;
 	}
-	
 
-	
+
+
 
 }

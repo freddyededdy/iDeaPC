@@ -16,7 +16,8 @@ import model.Prodotto;
 import model.ProdottoDS;
 
 /**
- * Servlet implementation class EliminaProdottoController
+ * EliminaProdottoController
+ * Servlet che elimina il prodotto dal database 
  */
 @WebServlet("/EliminaProdottoController")
 public class EliminaProdottoController extends HttpServlet {
