@@ -1,4 +1,4 @@
-package GestioneUtenti;
+package gestioneutenti;
 
 import java.io.IOException;
 import java.sql.Date;
