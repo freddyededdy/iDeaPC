@@ -1,6 +1,6 @@
 /*
 * Prodotto
-* Questa classe modella l'ogetto prodotto
+* Questa classe modella l'oggetto prodotto
 */
 package model;
 public class Prodotto {
@@ -30,7 +30,7 @@ public Prodotto( int id, String n, String d, double p, String im, int q){
  * costruttore vuoto della classe prodotto
  */
 public Prodotto() {
-	// TODO Auto-generated constructor stub
+	
 }
 private int quantitaCarrello;
 /**
