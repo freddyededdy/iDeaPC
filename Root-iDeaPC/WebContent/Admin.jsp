@@ -35,15 +35,7 @@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	  $(".button-collapse").sideNav();
   });
  </script>
-<script type="text/javascript">
-<!--
-	var stile = "top=30, left=150, width=300, height=700, status=no, menubar=no, toolbar=no scrollbars=no";
 
-	function Popup(apri) {
-		window.open(apri, "", stile);
-	}
-//-->
-</script>
 </head>
 <body class="body">
 	<%

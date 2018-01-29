@@ -62,6 +62,10 @@ $(document).ready(function(){
 </script>
 
 <script type="text/javascript">
+/**
+ * bottone per diminuire la quantità nel carrello
+ * controllo anche che la quantità inserita non sia un numero minore o uguale a zero
+ */
 function dif(index , indexp){
  var newcur;
  var cur=eval(document.getElementById(index).value);
@@ -82,6 +86,10 @@ function dif(index , indexp){
 }
 </script>
 <script type="text/javascript">
+/**
+ * bottone per aumentare la quantità nel carrello
+ * controllo anche che la quantità non superi la quantita massima nel magazzino
+ */
 function add(index , indexp , indexk , indexc){
 	var  quant = eval(document.getElementById(indexk).value);
  	var  newcur;

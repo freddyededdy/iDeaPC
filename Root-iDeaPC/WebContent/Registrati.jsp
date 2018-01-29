@@ -29,6 +29,10 @@ $(document).ready(function(){
  </script> 
 
 <script type="text/javascript">
+/**
+ * controllo sulla password
+ * controllo se le due password inserite sono corrette, in caso contrario compare un alert
+ */
 var password = document.getElementById("password")
 , confirm_password = document.getElementById("confirm_password");
 

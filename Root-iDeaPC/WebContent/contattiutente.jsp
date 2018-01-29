@@ -28,6 +28,9 @@
 
 
 <script>
+/**
+ * mappa del locale su google maps
+ */
 function myMap() {
 var mapProp= {
     center:new google.maps.LatLng(40.914224, 14.817516),

@@ -38,6 +38,10 @@
   });
   </script>
 <script type="text/javascript">
+/**
+ * controllo sul prezzo
+ * controllo che il prezzo inserito per il nuovo prodotto non sia minore o uguale a zero in questi casi compare un alert
+ */
 	function checkPrezzo(){
 	//	console.log("checkPrezzo");
 		var prezzo = document.getElementById("prezzo").value;
@@ -52,6 +56,10 @@
 	}
 	</script>
 <script>
+/**
+ * controllo sulla quantità
+ * controllo che la quantità non sia negativa o uguale a zero, in quel caso compare un alert
+ */
 	function checkQuantita(){
 		var quantita = document.getElementById("quantita").value;
 		if(isNaN(quantita)){

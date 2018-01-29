@@ -68,6 +68,10 @@ function Popup(apri)
 //-->
 </script>
 <script type="text/javascript">
+/**
+ * controllo sul numero della carta inserita al momento dell'acquisto
+ * controllo che venga inserito un numero di carta corretto
+ */
 function checkvaluecard(){
 	var card=document.getElementById("cardnumber").value;
 	if(isNaN(card)){ alert ("immettere codice corretto");
@@ -76,6 +80,10 @@ function checkvaluecard(){
 	}
 }</script>
 <script type="text/javascript">
+/**
+ * controllo sul pin
+ *controlo che al momento dell'acquisto il pin sia di 4 cifre
+ */
 function checkvaluepin(){
 	var pin= document.getElementById("cod_s").value;
 	if(isNaN(pin)){ alert ("immettere codice corretto");
@@ -84,6 +92,12 @@ function checkvaluepin(){
 	}
 }</script>
 <script type="text/javascript">
+/**
+ * controllo che il carrello non isa vuoto
+ * nel caso in cui il carrello è vuoto compare un messaggio di alert e si viene rimandati alla pagina menu in quanto al carrello vuoto
+ * non è possibile accedervi
+ *@param la quantita nel carrello
+ */
 function checkq(q){
 	if(q==0){
 		alert("il carrello è vuoto");

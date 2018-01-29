@@ -26,6 +26,10 @@ page
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 <script type="text/javascript">
+/**
+ * controllo se un utente è loggato
+ * se un utente non è loggato non può accedere alla pagina e si viene reindirizzati al catalogo
+ */
 function checklog(){
 	if(q==0){
 		alert("non sei loggato");

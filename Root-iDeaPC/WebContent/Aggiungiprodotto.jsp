@@ -27,6 +27,10 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 <script>
+/**
+ * controllo sul prezzo 
+ * controllo se nel campo prezzo è stato inserito un valore vuoto, minore di zero o zero, in questi casi compare un messaggio di errore
+ */
 	function checkPrezzo() {
 		console.log("checkPrezzo");
 		var prezzo = document.getElementById("prezzo").value;
@@ -39,6 +43,10 @@
 			document.getElementById("prezzo").value = "";
 		}
 	}
+	/**
+	*controllo sulla quantita
+	*controllo se nel campo quantita è stata inserita una quanita negativa, o zero, in questi casi compare un messaggio di errrore
+	*/
 	function checkQuantita() {
 		var quantita = document.getElementById("quantita").value;
 		if (isNaN(quantita)) {
@@ -60,15 +68,6 @@
 	$(document).ready(function() {
 		$(".button-collapse").sideNav();
 	});
-</script>
-<script type="text/javascript">
-<!--
-	var stile = "top=30, left=150, width=300, height=700, status=no, menubar=no, toolbar=no scrollbars=no";
-
-	function Popup(apri) {
-		window.open(apri, "", stile);
-	}
-//-->
 </script>
 </head>
 <body class="body">
