@@ -52,7 +52,6 @@ public class LoginController extends HttpServlet {
 
 		String user=request.getParameter("email");
 		String pass=request.getParameter("pass");
-		
 		if(user.equals("admin")|| user.equals("ADMIN") && pass.equals("root")){
 			 current = new Cliente();
 			 sessione.setAttribute("cliente", current);

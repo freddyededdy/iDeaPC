@@ -112,7 +112,7 @@ confirm_password.onkeyup = validatePassword;
 
 
 <p>Cognome:</p> <INPUT TYPE="TEXT" required NAME="cognome"><BR>
-<p>Data di nascita:</p>  <input type="date" required name="data_nasc" max="1998-12-31" min ="1950-01-01" >
+<p>Data di nascita:</p>  <input type="date" required name="data_nasc" max="1998-12-31" min ="1920-01-01" >
 <BR>
 <p>Città di  residenza:</p> <div class="citta"> <INPUT TYPE="TEXT"  class="indirizzo" NAME="citta" required> </div>
 <p>Via:</p> <div class="via"> <INPUT TYPE="TEXT"placeholder="Via o piazza specificare" required NAME="via"></div>

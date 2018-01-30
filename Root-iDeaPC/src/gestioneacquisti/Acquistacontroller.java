@@ -94,7 +94,7 @@ public class Acquistacontroller extends HttpServlet {
 				e1.printStackTrace();
 			}
 			ordine.setId_cli(id_cliente);
-			ordine.setDescrizione("inserire una descrizione");
+			ordine.setDescrizione("l'ordine è stato effettuato con successo");
 			ordine.setStato_pagamento("pagato");
 			id_ordine=maxid+1;
 

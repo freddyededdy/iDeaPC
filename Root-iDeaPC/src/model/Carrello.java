@@ -54,7 +54,6 @@ public class Carrello  {
 	 * metodo che rimuove tutti gli oggetti dall'arraylist del carrello 
 	 */
 	public void rimuovitutto(){
-		// 	oggetti_carrello.removeAll(oggetti_carrello);
 		oggetti_carrello.clear();
 	}
 }
