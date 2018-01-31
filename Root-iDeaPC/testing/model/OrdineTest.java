@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class OrdineTest {
-	Ordine ordine;
+	private Ordine ordine;
 	@Before
 	public void setUp() throws Exception {
 		ordine  = new Ordine();

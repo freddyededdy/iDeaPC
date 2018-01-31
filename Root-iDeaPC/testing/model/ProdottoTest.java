@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ProdottoTest {
-	Prodotto prodotto;
+	private Prodotto prodotto;
 	@Before
 	public void setUp() throws Exception {
 		prodotto = new Prodotto();
