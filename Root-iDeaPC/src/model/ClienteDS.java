@@ -68,7 +68,6 @@ public class ClienteDS implements Model_Interface<Cliente>{
 			preparedStatement.setString(10,cliente.getTipo_carta());
 			preparedStatement.setString(11,cliente.getN_carta());
 			preparedStatement.executeUpdate();
-
 			connection.commit();
 		} finally {
 			try {
