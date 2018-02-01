@@ -20,18 +20,7 @@ import javax.sql.DataSource;
 
 
 public class ProdottoDS implements Model_Interface <Prodotto> {
-private static DataSource ds;
-static {
-	try {
-		Context initCtx = new InitialContext();
-		Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
-		ds = (DataSource) envCtx.lookup("jdbc/ideapc");
-
-	} catch (NamingException e) {
-		System.out.println("Error:" + e.getMessage());
-	}
-}
 private static final String TABLE_NAME = "prodotto";
 /**
  * Metodo che inserisce un prodotto nel database
@@ -47,16 +36,14 @@ private static final String TABLE_NAME = "prodotto";
 
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 			preparedStatement.setString(1, prodotto.getNome());
 			preparedStatement.setString(2, prodotto.getDescrizione());
 			preparedStatement.setDouble(3, prodotto.getPrezzo());
 			preparedStatement.setString(4, prodotto.getImmagine());
 			preparedStatement.setInt(5, prodotto.getQuantità());
-			System.out.println(prodotto.toString());
 			preparedStatement.executeUpdate();
-			connection.commit();
 	} finally {
 		try {
 			if (preparedStatement != null)
@@ -84,7 +71,7 @@ private static final String TABLE_NAME = "prodotto";
 		String deleteSQL = "DELETE FROM " + TABLE_NAME + " WHERE id_prod = ?";
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			preparedStatement.setInt(1, id);
 
@@ -116,7 +103,7 @@ private static final String TABLE_NAME = "prodotto";
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE id_prod = ?";
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, id);
 
@@ -157,7 +144,7 @@ private static final String TABLE_NAME = "prodotto";
 		String selectSQL = "SELECT * FROM " + TABLE_NAME ;
 		
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			
 			ResultSet rs = preparedStatement.executeQuery();
@@ -197,21 +184,12 @@ private static final String TABLE_NAME = "prodotto";
 		public synchronized void update(Prodotto prodotto) throws SQLException {
 			Connection connection = null;
 			PreparedStatement preparedStatement = null;
-			String updateSql = "UPDATE " + TABLE_NAME + " SET NOME= ?, DESCRIZIONE= ? , PREZZO = ?, PATH_IMMAGINE = ?, QUANTITA = ? WHERE id_prod = ? ";
-
+			String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE id_prod = ?";
 
 			try {
-				connection = ds.getConnection();
-				preparedStatement = connection.prepareStatement(updateSql);
-				preparedStatement.setString(1, prodotto.getNome());
-				preparedStatement.setString(2, prodotto.getDescrizione());
-				preparedStatement.setDouble(3,prodotto.getPrezzo());
-				preparedStatement.setString(4, prodotto.getImmagine());
-				preparedStatement.setInt(5, prodotto.getQuantità());
-				preparedStatement.setInt(6, prodotto.getId_prod());
-				preparedStatement.executeUpdate();
-				connection.commit();
-				System.out.println(preparedStatement.toString());
+				connection = DBManager.getInstance().getConnection();
+				preparedStatement = connection.prepareStatement(selectSQL);
+
 			} finally {
 				try {
 					if (preparedStatement != null)
@@ -222,12 +200,52 @@ private static final String TABLE_NAME = "prodotto";
 				}
 			}
 
+		}
+		/**
+		 * 
+		 * @param nome_P
+		 * nome del prodotto da cercare
+		 */
+		public synchronized Prodotto findbyname(String nome_P) throws SQLException {
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
 
+			Prodotto prodotto = new Prodotto();
+
+			String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE nome_prodotto = ?";
+
+			try {
+				connection = DBManager.getInstance().getConnection();
+				preparedStatement = connection.prepareStatement(selectSQL);
+				preparedStatement.setString(1, nome_P);
+
+				ResultSet rs = preparedStatement.executeQuery();
+
+				while (rs.next()) {
+					prodotto.setId_prod(rs.getInt("id_prod"));
+					prodotto.setNome(rs.getString("Nome"));
+					prodotto.setDescrizione(rs.getString("descrizione"));
+					prodotto.setPrezzo(rs.getDouble("prezzo"));
+					prodotto.setImmagine(rs.getString("path_immagine"));
+					prodotto.setQuantità(rs.getInt("quantita"));
+				}
+				
+
+			} finally {
+				try {
+					if (preparedStatement != null)
+						preparedStatement.close();
+				} finally {
+					if (connection != null)
+						connection.close();
+				}
+			}
+			return prodotto;
 
 		}
+}
 
 		
-	}
 
 
 

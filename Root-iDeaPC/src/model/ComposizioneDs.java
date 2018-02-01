@@ -22,20 +22,7 @@ import javax.sql.DataSource;
 
 public class ComposizioneDs implements Model_Interface<Composizione>{
 
-	private static DataSource ds;
-
-	static {
-		try {
-			Context initCtx = new InitialContext();
-			Context envCtx = (Context) initCtx.lookup("java:comp/env");
-
-			ds = (DataSource) envCtx.lookup("jdbc/ideapc");
-
-		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
-		}
-	}
-
+	
 	private static final String TABLE_NAME = "composizione";
 	/**
 	 * Metodo che inserisce la composizione (realzione n a n tra ordine e prodotto )
@@ -51,7 +38,7 @@ public class ComposizioneDs implements Model_Interface<Composizione>{
 
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 
 			preparedStatement.setInt(1,	composizione.getId_ordne());
@@ -60,7 +47,6 @@ public class ComposizioneDs implements Model_Interface<Composizione>{
 			preparedStatement.setDouble(4,	composizione.getPrezzo());
 			preparedStatement.setString(5, composizione.getNome_p());
 			preparedStatement.executeUpdate();
-			connection.commit();
 		} finally {
 			try {
 				if (preparedStatement != null)
@@ -81,8 +67,30 @@ public class ComposizioneDs implements Model_Interface<Composizione>{
 	
 	@Override
 	public synchronized boolean remove(int id) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int result = 0;
+
+		String deleteSQL = "DELETE FROM " + TABLE_NAME + " WHERE id_prod = ?";
+
+		try {
+			connection = DBManager.getInstance().getConnection();
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setInt(1, id);
+
+			result = preparedStatement.executeUpdate();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
 	}
 
 	@Override
@@ -111,7 +119,7 @@ public class ComposizioneDs implements Model_Interface<Composizione>{
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " where id_ordine=?";
 		
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, id_ordine);
 			ResultSet rs = preparedStatement.executeQuery();

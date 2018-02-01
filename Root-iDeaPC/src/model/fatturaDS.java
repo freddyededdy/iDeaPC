@@ -21,19 +21,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class fatturaDS implements Model_Interface<Fattura> {
-	private static DataSource ds;
 
-	static {
-		try {
-			Context initCtx = new InitialContext();
-			Context envCtx = (Context) initCtx.lookup("java:comp/env");
-
-			ds = (DataSource) envCtx.lookup("jdbc/ideapc");
-
-		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
-		}
-	}
 
 	private static final String TABLE_NAME = "fattura";
 
@@ -51,7 +39,7 @@ public class fatturaDS implements Model_Interface<Fattura> {
 
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 
 			preparedStatement.setInt(1, fattura.getId_fattura());
@@ -87,7 +75,7 @@ public class fatturaDS implements Model_Interface<Fattura> {
 		String deleteSQL = "DELETE FROM " + TABLE_NAME + " WHERE id_fattura = ?";
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			preparedStatement.setInt(1, id);
 
@@ -120,7 +108,7 @@ public class fatturaDS implements Model_Interface<Fattura> {
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE id_fattura = ?";
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, id);
 
@@ -161,7 +149,7 @@ public class fatturaDS implements Model_Interface<Fattura> {
 		int id_fattura=0;
 		String selectSQL = "SELECT id_fattura FROM " + TABLE_NAME + " WHERE id_fattura =( SELECT max(id_fattura) FROM " + TABLE_NAME + ")";
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 
 
@@ -197,7 +185,7 @@ public class fatturaDS implements Model_Interface<Fattura> {
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " where id_ordine=?";
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, id_ordine);
 			ResultSet rs = preparedStatement.executeQuery();

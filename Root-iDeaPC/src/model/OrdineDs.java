@@ -20,19 +20,6 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class OrdineDs implements Model_Interface<Ordine> {
-	private static DataSource ds;
-
-	static {
-		try {
-			Context initCtx = new InitialContext();
-			Context envCtx = (Context) initCtx.lookup("java:comp/env");
-
-			ds = (DataSource) envCtx.lookup("jdbc/ideapc");
-
-		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
-		}
-	}
 
 	private static final String TABLE_NAME = "ordine";
 	@Override
@@ -49,7 +36,7 @@ public class OrdineDs implements Model_Interface<Ordine> {
 
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 
 			preparedStatement.setInt(1, ordine.getId_ordine());
@@ -58,8 +45,6 @@ public class OrdineDs implements Model_Interface<Ordine> {
 			preparedStatement.setInt(4, ordine.getId_cli());
 			preparedStatement.setTimestamp(5, ordine.getData_ordine());
 			preparedStatement.executeUpdate();
-
-			connection.commit();
 		} finally {
 			try {
 				if (preparedStatement != null)
@@ -83,7 +68,7 @@ public class OrdineDs implements Model_Interface<Ordine> {
 
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(updateSql);
 			preparedStatement.setString(1, ordine.getStato_pagamento());
 			preparedStatement.setString(2, ordine.getDescrizione());
@@ -118,7 +103,7 @@ public class OrdineDs implements Model_Interface<Ordine> {
 		String deleteSQL = "DELETE FROM " + TABLE_NAME + " WHERE id_ordine = ?";
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			preparedStatement.setInt(1, id);
 
@@ -149,7 +134,7 @@ public class OrdineDs implements Model_Interface<Ordine> {
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE id_ordine = ?";
 
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, id);
 
@@ -186,7 +171,7 @@ public class OrdineDs implements Model_Interface<Ordine> {
 		Collection<Ordine>ordiniTutti= new ArrayList<Ordine>();
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + "";
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 
 
@@ -227,7 +212,7 @@ public class OrdineDs implements Model_Interface<Ordine> {
 		int id_ordine=0;
 		String selectSQL = "SELECT id_ordine FROM " + TABLE_NAME + " WHERE id_ordine =( SELECT max(id_ordine) FROM " + TABLE_NAME + ")";
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 
 
@@ -260,7 +245,7 @@ public class OrdineDs implements Model_Interface<Ordine> {
 		Collection<Ordine>ordiniCliente= new ArrayList<Ordine>();
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE id_cli = ?";
 		try {
-			connection = ds.getConnection();
+			connection = DBManager.getInstance().getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, id_cliente);
 
