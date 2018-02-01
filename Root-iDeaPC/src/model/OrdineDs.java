@@ -275,5 +275,41 @@ public class OrdineDs implements Model_Interface<Ordine> {
 		}
 		return ordiniCliente;
 	}
+	public synchronized Ordine findbydesc(String des) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Ordine ordine = new Ordine();
+
+		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE id_ordine = ?";
+
+		try {
+			connection = DBManager.getInstance().getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1,des );
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				ordine.setId_ordine(rs.getInt("id_ordine"));
+				ordine.setStato_pagamento(rs.getString("stato_pagamento"));
+				ordine.setDescrizione(rs.getString("descrizione"));
+				ordine.setId_cli(rs.getInt("id_cli"));
+				ordine.setData_ordine(rs.getTimestamp("data_ordine"));
+			}
+			
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return ordine;
+	}
+
 
 }

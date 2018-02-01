@@ -105,8 +105,8 @@ public class ComposizioneDs implements Model_Interface<Composizione>{
 		return null;
 	}
 	/**
-	 * Metodo che mi ritorna tutte le con uno specifico id prodotto
-	 * @param id del prodotto
+	 * Metodo che mi ritorna tutte lecomposizioni con uno specifico id_dell'ordine
+	 * @param id dell'ordine
 	 * @return Collection di composizone
 	 */
 	public synchronized Collection<Composizione> findbyid_ordine(int id_ordine) throws SQLException {

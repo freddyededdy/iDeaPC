@@ -57,26 +57,60 @@ public class ComposizioneDsTest {
 		clienteds.insert(cliente);
 		Cliente current  =clienteds.findByMail("q@live.it");
 		int id_cli = current.getId();
+		
+		prodottods.insert(pr);
+		
 		ordine.setId_cli(id_cli);
 		ordineds.insert(ordine);
-		ds.insert(composizione);
-		prodottods.insert(pr);
+		
 		Prodotto prr = new Prodotto();
 		prr =prodottods.findbyname("scheda video");
+		int id_pro=prr.getId_prod();
+		
+		composizione.setId_prod(id_pro);
+		composizione.setId_ordne(2);
+		ds.insert(composizione);
+		
 		Collection<Composizione> comp = new LinkedList<Composizione>();
-		comp = ds.findAll();
-		Iterator<?> it2 = comp.iterator();
-		while (it2.hasNext()) {
-			Composizione c = (Composizione) it2.next();
-			int idprod = c.getId_prod();
-			ds.remove(idprod);
-		}
+	
+		comp = ds.findbyid_ordine(2);
+		
+		prodottods.remove(id_pro);
+		ordineds.remove(2);
+		clienteds.remove(id_cli);
+		
 		assertTrue(comp != null);
 	}
 
 	@Test
-	public void testFindbyid_ordine() {
-		fail("Not yet implemented");
+	public void testFindbyid_ordine() throws SQLException {
+		clienteds.insert(cliente);
+		prodottods.insert(pr);
+		Cliente current  =clienteds.findByMail("q@live.it");
+		int id_cli = current.getId();
+		
+		ordine.setId_cli(id_cli);
+		ordineds.insert(ordine);
+		
+		Prodotto prr = new Prodotto();
+		prr =prodottods.findbyname("scheda video");
+		int id_pro=prr.getId_prod();
+		
+		composizione.setId_prod(id_pro);
+		composizione.setId_ordne(2);
+		ds.insert(composizione);
+		
+		Collection<Composizione> comp = new LinkedList<Composizione>();
+	
+		comp = ds.findbyid_ordine(2);
+		
+		prodottods.remove(id_pro);
+		ordineds.remove(2);
+		clienteds.remove(id_cli);
+		
+		assertTrue(comp != null);
 	}
 
-}
+	}
+
+

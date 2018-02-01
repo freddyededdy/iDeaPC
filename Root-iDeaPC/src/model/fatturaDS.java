@@ -48,8 +48,6 @@ public class fatturaDS implements Model_Interface<Fattura> {
 			preparedStatement.setFloat(4, fattura.getImponibile());
 			preparedStatement.setFloat(5, fattura.getTotale());
 			preparedStatement.executeUpdate();
-
-			connection.commit();
 		} finally {
 			try {
 				if (preparedStatement != null)

@@ -212,7 +212,7 @@ private static final String TABLE_NAME = "prodotto";
 
 			Prodotto prodotto = new Prodotto();
 
-			String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE nome_prodotto = ?";
+			String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE nome = ?";
 
 			try {
 				connection = DBManager.getInstance().getConnection();
