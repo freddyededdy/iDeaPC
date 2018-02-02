@@ -55,37 +55,10 @@ public class OrdineDs implements Model_Interface<Ordine> {
 			}
 		}		
 	}
-	/**
-	 * Metodo che mi aggiorna un ordine 
-	 * @param l'ordine da aggiornare
-	 */
+
 
 	@Override
 	public synchronized void update(Ordine ordine) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-		String updateSql = "UPDATE " + TABLE_NAME + " SET STATO_PAGAMENTO= ?, DESCRIZIONE= ?  WHERE ID_ORDINE = ? ";
-
-
-		try {
-			connection = DBManager.getInstance().getConnection();
-			preparedStatement = connection.prepareStatement(updateSql);
-			preparedStatement.setString(1, ordine.getStato_pagamento());
-			preparedStatement.setString(2, ordine.getDescrizione());
-			preparedStatement.executeUpdate();
-			connection.commit();
-
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				if (connection != null)
-					connection.close();
-			}
-		}
-
-
 
 	}
 	/**
