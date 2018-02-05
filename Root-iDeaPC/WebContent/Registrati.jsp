@@ -28,6 +28,7 @@ $(document).ready(function(){
   });
  </script> 
 
+
 <script type="text/javascript">
 /**
  * controllo sulla password
@@ -107,18 +108,22 @@ confirm_password.onkeyup = validatePassword;
 
 <CENTER>
 
-<p>Nome:</p> <INPUT TYPE="TEXT" required NAME="nome" id="nomeid" ><BR>
+<p>Nome:</p> <INPUT TYPE="TEXT" required NAME="nome" maxlength= "20" id="nomeid" ><BR>
 
 
 
-<p>Cognome:</p> <INPUT TYPE="TEXT" required NAME="cognome"><BR>
+<p>Cognome:</p> <INPUT TYPE="TEXT" maxlength= "20" required NAME="cognome"><BR>
 <p>Data di nascita:</p>  <input type="date" required name="data_nasc" max="1998-12-31" min ="1920-01-01" >
 <BR>
-<p>Città di  residenza:</p> <div class="citta"> <INPUT TYPE="TEXT"  class="indirizzo" NAME="citta" required> </div>
-<p>Via:</p> <div class="via"> <INPUT TYPE="TEXT"placeholder="Via o piazza specificare" required NAME="via"></div>
+<p>Città di  residenza:</p> <div class="citta"> <INPUT TYPE="TEXT" maxlength= "25"  class="indirizzo" NAME="citta" required> </div>
+<p>Via:</p> <div class="via"> <INPUT TYPE="TEXT"placeholder="Via o piazza specificare"maxlength= "30" maxlength= "30" required NAME="via"></div>
 <p>N. civico:</p> <div class="numero"> <INPUT TYPE="TEXT" NAME="numero_civico" required maxlength="5"></div><BR>
 <p>Cellulare:</p> <INPUT TYPE="text" NAME="cellulare" id="cell"  required pattern=".{10,}" maxlength="10" onChange="checkcel()"><BR>
 <script type="text/javascript">
+/**
+ * controllo sul numero di telefono
+ *controllo se il cellulare è un numero
+ */
 function checkcel(){
 	var cel=document.getElementById("cell").value;
 	if(isNaN(cel)){ alert("Valore non corretto");
@@ -126,7 +131,7 @@ function checkcel(){
 	}
 }</script>
 
-<p>Email:</p> <INPUT name="mail" type="email" class="validate" required style="
+<p>Email:</p> <INPUT name="mail"  maxlength= "30" id = "mail"type="email" class="validate" required style="
     width: 100%;
     padding: 10px 12px;
     margin: 6px 0px;
@@ -135,7 +140,7 @@ function checkcel(){
     border-radius: 4px;
     box-sizing: border-box;
     float: right;
-    border-opacity:.8;"><BR>
+    border-opacity:.8; "><BR>
 <form class="pure-form">
    
         <p>Password:</p>
@@ -159,6 +164,10 @@ function checkcel(){
     float: right;
     border-opacity:.8;">
     <script type="text/javascript">
+    /**
+    *controllo sulla password 
+    *controllo se la pass è di minimo 8 cifre e coincidono le due password
+    */
     function checkpass(){
     	var pas=document.getElementById("pass").value;
     	var conf_p= document.getElementById("confirm_password").value;
