@@ -92,9 +92,9 @@ if(carrello==null){
 					<h4>LOGIN!</h4>
 					<FORM class="formlogin" ACTION="LoginController" METHOD="post"
 						target="_self" style="margin: 2% 2%;">
-						EMAIL <INPUT TYPE="email" placeholder="inserisci l'email" required
+						EMAIL <INPUT TYPE="email" maxlength="30" placeholder="inserisci l'email" required
 							NAME="email" style="color: black;"><BR> PASSWORD <INPUT
-							TYPE="password" placeholder="Inserisci la password" required
+							TYPE="password" maxlenght = "16" placeholder="Inserisci la password" required
 							NAME="pass"><BR> <span><INPUT
 							class="btn small" style="vertical-align: middle" TYPE="SUBMIT"
 							VALUE="LOGIN"> </span>
