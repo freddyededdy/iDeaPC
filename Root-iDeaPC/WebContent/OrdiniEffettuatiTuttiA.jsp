@@ -63,8 +63,7 @@ Collection<Ordine> ordiniTutti=(Collection<Ordine>)sessione.getAttribute("ordine
 		<div
 			style="float: right; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 2% 2% 2% 2%; margin: 3% 4%; position: relative;">
 			<p style="text-align: center;">
-				<i class="small material-icons">perm_identity</i> Ciao
-				<%=cliente.getNome() %></p>
+				<i class="small material-icons"></i> Ciao Admin</p>
 			<div class="btn-group red">
 				<a href="Logout.jsp" class="btn btn-primary">Logout</a>
 
@@ -81,20 +80,22 @@ Collection<Ordine> ordiniTutti=(Collection<Ordine>)sessione.getAttribute("ordine
 
 	<nav>
 	<div class="nav-wrapper">
+
+
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i
 			class="material-icons">menu</i></a>
 		<ul id="nav-mobile" class="left hide-on-med-and-down"
 			style="margin: 0px 20px">
 
 			<li><a href="Admin.jsp"> Home admin</a></li>
-			<li><a href="gestione-cliente.jsp">gestione clienti</a></li>
 			<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
-			<li><a href="OrdiniEffettuatiTuttiA.jsp">gestione ordine</a></li>
-
+			<form action="visualizzatuttelefattureA" method="post">
+				<li><button type="submit">ORDINI EFFETTUATI</button></li>
+			</form>
+			<% System.out.println(session.getId()); %>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
 			<li><a href="Admin.jsp"> Home admin</a></li>
-			<li><a href="gestione-cliente.jsp">gestione clienti</a></li>
 			<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
 			<li><a href="OrdiniEffettuatiTuttiA.jsp">gestione ordine</a></li>
 		</ul>
@@ -199,7 +200,7 @@ Collection<Ordine> ordiniTutti=(Collection<Ordine>)sessione.getAttribute("ordine
 					%></p></b>
 
 
-				____________________________________________________________________________________________________________________________________
+	____________________________________________________________________________________________________________________________________
 				<br> <br> <br>
 				<%
 					}
@@ -223,16 +224,13 @@ Collection<Ordine> ordiniTutti=(Collection<Ordine>)sessione.getAttribute("ordine
 				<h5 class="white-text">LINK</h5>
 				<ul>
 					<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
-					<li><a href="gestione-cliente.jsp">gestione clienti</a></li>
-
 					<li><a href="OrdiniEffettuatiTuttiA.jsp">gestione ordine</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="footer-copyright">
-		<div class="container">© 2017 Copyright by I.RICCI,
-			V.DELGAUDIO, A.LEONE.</div>
+		<div class="container"></div>
 	</div>
 	</footer>
 

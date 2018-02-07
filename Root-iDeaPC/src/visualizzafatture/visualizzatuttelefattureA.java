@@ -59,7 +59,7 @@ public class visualizzatuttelefattureA extends HttpServlet {
 			e.printStackTrace();
 					}
 			session.setAttribute("ordine", ordiniTutti);
-			RequestDispatcher view = request.getRequestDispatcher("/OrdiniEffettuati.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("/OrdiniEffettuatiTuttiA.jsp");
 			view.forward(request, response);
 		}
 	}

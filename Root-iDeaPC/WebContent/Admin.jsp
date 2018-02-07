@@ -55,7 +55,7 @@ try{
 
 			<p style="text-align: center;">
 				<i class="small material-icons">perm_identity</i> Ciao
-				<%=cliente.getNome() %></p>
+				Admin</p>
 			<div class="btn-group red">
 				<a href="Logout.jsp" class="btn btn-primary">Logout</a>
 
@@ -82,7 +82,6 @@ try{
 			style="margin: 0px 20px">
 
 			<li><a href="Admin.jsp"> Home admin</a></li>
-			<li><a href="gestione-cliente.jsp">gestione clienti</a></li>
 			<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
 			<form action="visualizzatuttelefattureA" method="post">
 				<li><button type="submit">ORDINI EFFETTUATI</button></li>
@@ -91,7 +90,6 @@ try{
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
 			<li><a href="Admin.jsp"> Home admin</a></li>
-			<li><a href="gestione-cliente.jsp">gestione clienti</a></li>
 			<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
 			<li><a href="OrdiniEffettuatiTuttiA.jsp">gestione ordine</a></li>
 		</ul>
@@ -193,8 +191,7 @@ try{
 		</div>
 	</div>
 	<div class="footer-copyright">
-		<div class="container">© 2017 Copyright by I.RICCI,
-			V.DELGAUDIO, A.LEONE.</div>
+		<div class="container"></div>
 	</div>
 	</footer>
 	<%

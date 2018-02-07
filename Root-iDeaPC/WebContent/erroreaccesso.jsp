@@ -9,6 +9,6 @@
 </head>
 <body>
 	Errore nelle credenziali
-	<a href="index.html">torna alla Home</a>
+	<a href="indexLoggato.jsp">torna alla Home</a>
 </body>
 </html>

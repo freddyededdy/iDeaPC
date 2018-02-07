@@ -352,8 +352,7 @@ function islog(cliente){
 		</div>
 	</div>
 	<div class="footer-copyright">
-		<div class="container">© 2017 Copyright by I.RICCI,
-			V.DELGAUDIO, A.LEONE.</div>
+		<div class="container"></div>
 	</div>
 	</footer>
 
