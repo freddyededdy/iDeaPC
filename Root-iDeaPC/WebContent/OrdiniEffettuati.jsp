@@ -74,9 +74,6 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
 			<p style="text-align: center;">
 				<i class="small material-icons">perm_identity</i> Ciao
 				<%=cliente.getNome() %></p>
-			<p style="text-align: center;">
-				<i class="small material-icons">perm_identity</i> Ciao
-				<%=cliente.getNome() %></p>
 			<form action="LogoutController" method="post" class="btn btn-primary"
 				style="padding: 0">
 				<button class="btn btn-primary" type="submit">Logout</button>

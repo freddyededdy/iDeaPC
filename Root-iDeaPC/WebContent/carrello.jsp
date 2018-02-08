@@ -78,7 +78,8 @@ function checkvaluecard(){
 	document.getElementById("cardnumber").value="";
 	
 	}
-}</script>
+}
+</script>
 <script type="text/javascript">
 /**
  * controllo sul pin

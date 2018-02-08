@@ -183,7 +183,6 @@ try{
 				<h5 class="white-text">LINK</h5>
 				<ul>
 					<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
-					<li><a href="gestione-cliente.jsp">gestione clienti</a></li>
 
 					<li><a href="OrdiniEffettuatiTuttiA.jsp">gestione ordine</a></li>
 				</ul>

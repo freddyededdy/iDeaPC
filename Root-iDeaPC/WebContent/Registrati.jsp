@@ -50,6 +50,26 @@ confirm_password.onkeyup = validatePassword;
 
 
   </script>
+  <script>
+  function controlloFormato(){
+	  var x = document.getElementById("nomeid");
+	  if (/[^a-zA-Z '']/.test(x.value)){
+		  x.value="";
+		  alert("formato nome non corretto");
+	  }
+	  
+  }
+  </script>
+  
+  <script>
+  function controlloFormatoCog(){
+	  var x = document.getElementById("cogid");
+	  if (/[^a-zA-Z '']/.test(x.value)){
+		  x.value ="";
+		  alert("formato cognome non corretto");
+	  } 
+  }
+  </script>
   
 <title>Registrazione utente</title>
 </head>
@@ -108,11 +128,10 @@ confirm_password.onkeyup = validatePassword;
 
 <CENTER>
 
-<p>Nome:</p> <INPUT TYPE="TEXT" required NAME="nome" maxlength= "20" id="nomeid" ><BR>
+<p>Nome:</p> <INPUT TYPE="TEXT" required NAME="nome" maxlength= "20" id="nomeid" onChange ="controlloFormato()" ><BR>
 
 
-
-<p>Cognome:</p> <INPUT TYPE="TEXT" maxlength= "20" required NAME="cognome"><BR>
+<p>Cognome:</p> <INPUT TYPE="TEXT" maxlength= "20" required NAME="cognome" id ="cogid" onChange = "controlloFormatoCog()"><BR>
 <p>Data di nascita:</p>  <input type="date" required name="data_nasc" max="1998-12-31" min ="1920-01-01" >
 <BR>
 <p>Città di  residenza:</p> <div class="citta"> <INPUT TYPE="TEXT" maxlength= "25"  class="indirizzo" NAME="citta" required> </div>
