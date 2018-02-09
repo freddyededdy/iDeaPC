@@ -1,0 +1,82 @@
+body {
+	
+    color:#000000;
+    font-family: 'Arial', 'Lucida Sans Unicode';
+    font-size: 57,5%;
+    line-height: 1.5;
+    text-align: left;
+}
+p{
+	color:black;
+	 font-family: 'Arial', 'Lucida Sans Unicode';
+}
+input[type=text], select {
+    width: 100%;
+    padding: 6px 12px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    float: right;
+    border-opacity:.8;
+}
+input[type=date], select {
+    width: 100%;
+    padding: 6px 12px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    float: right;
+    border-opacity:.8;
+}
+.registrati {
+    width: 40%;
+     background-color: #800000 ; 
+    border: none;
+    border-radius:10px;
+    color: white;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    display:block;
+    font-size: 10px;
+    margin:6px 0px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+	
+}
+
+
+
+.registrati span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  
+}
+.registrati:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.registrati:hover  {
+  padding-right: 15px;
+  background-color: #980000;
+
+  
+}
+
+.registrati:hover {
+  opacity: 1;
+  right: 0;
+}
+ 
+ 
