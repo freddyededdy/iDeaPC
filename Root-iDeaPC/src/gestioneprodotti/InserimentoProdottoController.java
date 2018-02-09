@@ -79,7 +79,9 @@ public class InserimentoProdottoController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-			
+		RequestDispatcher view = request.getRequestDispatcher("gestione-prodotto.jsp");
+		view.forward(request, response);
+
 		}
 		
 	
@@ -152,8 +154,7 @@ public class InserimentoProdottoController extends HttpServlet {
     	private void creaProdotto(HttpServletRequest request, HttpServletResponse response) {
     		
  		   	immagine = parametri.get(0);
- 		   	immagineOriginale = parametri.get(1);
- 		   	nome = parametri.get(2);
+ 		   	nome = parametri.get(1);
  		   	descrizione = parametri.get(2);
  		   	prezzo = Double.parseDouble(parametri.get(3));
  		   	quantita = Integer.parseInt(parametri.get(4));
@@ -194,9 +195,6 @@ public class InserimentoProdottoController extends HttpServlet {
 
         		
         		
-//				
-//				RequestDispatcher view = request.getRequestDispatcher("gestione-prodotto.jsp");
-//				view.forward(request, response);
 	
 	
 
