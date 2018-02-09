@@ -75,6 +75,7 @@ public class ModificaProdottoController extends HttpServlet {
 		creaProdotto(request, response);
 		
 		try{
+			System.out.println(p.getQuantità() +"quantita" + p.getImmagine() + " immagine");
 			prodottods.update(p);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -87,7 +88,6 @@ public class ModificaProdottoController extends HttpServlet {
 	private void creaProdotto(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		HttpSession sessione= request.getSession();
 		ArrayList<Prodotto> prodotti =(ArrayList<Prodotto>) sessione.getAttribute("prodotto");
-		   	System.out.println(parametri.toString());
 		   	p = new Prodotto();
 		   	Prodotto prodottoImmagine = null; 	//variabile sulla quale eseguo la query findbykey per trovare il prodotto con quell'id
 		   	nome = parametri.get(0);
@@ -108,7 +108,7 @@ public class ModificaProdottoController extends HttpServlet {
 		  	}else{
 		  	p.setImmagine(immagine);
 		  	}
-		   	
+		   	System.out.println(p.getImmagine() + " immagine da settare");
 		   	p.setId_prod(id);
 		   	p.setDescrizione(descrizione);
 		   	p.setNome(nome);
