@@ -51,6 +51,28 @@ $('.slider').slider('prev');
   $( document ).ready(function(){
 	  $(".button-collapse").sideNav();
   });
+  
+  
+  function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	var valore = xhttp.getResponseHeader("ord");
+	    	if(valore == 1){
+	    		alert("Devi prima effettuare il login!");
+	    		open("indexLoggato.jsp", "_SELF");
+	    	}
+	    	if(valore == 2){
+	    		open("OrdiniEffettuati.jsp", "_SELF");
+	    	}
+	    	else{
+	    		alert("ERRORE");
+	    	}
+	    }
+	  };
+	  xhttp.open("POST", "visualizzafatture", false);
+	  xhttp.send();
+	}
  </script>
 
 </head>
@@ -139,9 +161,7 @@ if(carrello==null){
 			<li><a href="indexLoggato.jsp">HOME</a></li>
 			<li><a href="menuutenteloggato.jsp">MENU</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
-				<form action="visualizzafatture" method="post">
-					<li><button type="submit">ORDINI EFFETTUATI</button></li>
-				</form>
+			<li><a href="#" onclick="loadDoc()">ORDINI EFFETTUATI</a></li>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
 			<li><a href="menuutenteloggato.jsp">MENU</a></li>
@@ -165,7 +185,7 @@ if(carrello==null){
 			</footer>
 
 
-			<p>Bevenuti sul sito di mike's pizza. Sei un nuovo utente?
+			<p>Bevenuti sul sito di iDeaPC. Sei un nuovo utente?
 				Procedi al login!
 			</article>
 			<article class="bottoncontent"> <header>

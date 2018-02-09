@@ -59,8 +59,7 @@ public class visualizzafatture extends HttpServlet {
 		Carrello carrello =((Carrello)session.getAttribute("carrello"));
 		Cliente cliente=((Cliente)session.getAttribute("cliente"));
 		if(cliente==null){
-			RequestDispatcher view = request.getRequestDispatcher("/indexLoggato.jsp");
-			view.forward(request, response);
+			response.addIntHeader("ord", 1);
 		}else{
 			int id_cli=cliente.getId();
 			Collection <Ordine> ordiniCliente = null;
@@ -74,8 +73,7 @@ public class visualizzafatture extends HttpServlet {
 				e.printStackTrace();
 			}
 			session.setAttribute("ordine", ordiniCliente);
-			RequestDispatcher view = request.getRequestDispatcher("/OrdiniEffettuati.jsp");
-			view.forward(request, response);
+			response.addIntHeader("ord", 2);
 		}
 	}
 }
