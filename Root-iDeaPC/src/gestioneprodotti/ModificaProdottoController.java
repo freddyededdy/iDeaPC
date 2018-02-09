@@ -29,7 +29,7 @@ import model.ProdottoDS;
 @WebServlet("/ModificaProdottoController")
 public class ModificaProdottoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static ProdottoDS prodottods = new ProdottoDS();
+	private ProdottoDS prodottods = new ProdottoDS();
 	
 	   private static final String UPLOAD_DIRECTORY = "images";
 	    
@@ -114,7 +114,6 @@ public class ModificaProdottoController extends HttpServlet {
 		   	p.setNome(nome);
 		   	p.setQuantità(quantita);
 		   	p.setPrezzo(prezzo);
-		   	p = new Prodotto(id, nome , descrizione , prezzo, immagine , quantita);
 		
 	}
 

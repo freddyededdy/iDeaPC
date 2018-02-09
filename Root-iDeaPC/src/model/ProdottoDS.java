@@ -182,14 +182,22 @@ private static final String TABLE_NAME = "prodotto";
 	 */
 		@Override
 		public synchronized void update(Prodotto prodotto) throws SQLException {
+			System.out.println("il prodotto da aggiornare" + prodotto.toString());
 			Connection connection = null;
 			PreparedStatement preparedStatement = null;
-			String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE id_prod = ?";
+			String updateSql = "UPDATE " + TABLE_NAME + " SET NOME= ?, DESCRIZIONE= ? , PREZZO = ?, PATH_IMMAGINE = ? WHERE id_prod = ? ";
+
 
 			try {
 				connection = DBManager.getInstance().getConnection();
-				preparedStatement = connection.prepareStatement(selectSQL);
-
+				preparedStatement = connection.prepareStatement(updateSql);
+				preparedStatement.setInt(5, prodotto.getId_prod());
+				preparedStatement.setString(1, prodotto.getNome());
+				preparedStatement.setString(2, prodotto.getDescrizione());
+				preparedStatement.setDouble(3,prodotto.getPrezzo());
+				preparedStatement.setString(4, prodotto.getImmagine());
+				preparedStatement.executeUpdate();
+				connection.commit();
 			} finally {
 				try {
 					if (preparedStatement != null)
