@@ -93,7 +93,7 @@ public class RegistrazioneController extends HttpServlet {
 
 		}
 		
-		response.sendRedirect("index.html");
+		response.sendRedirect("indexLoggato.jsp");
 	
 	}
 

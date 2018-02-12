@@ -34,7 +34,7 @@ input[type=date], select {
 }
 .registrati {
     width: 40%;
-     background-color: #800000 ; 
+     background-color: #0080ff ; 
     border: none;
     border-radius:10px;
     color: white;
@@ -69,7 +69,7 @@ input[type=date], select {
 }
 .registrati:hover  {
   padding-right: 15px;
-  background-color: #980000;
+  background-color: #0080c0;
 
   
 }

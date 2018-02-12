@@ -54,7 +54,7 @@ body {
 
 .registrati {
     width: 40%;
-     background-color: #800000 ; 
+     background-color: #0080ff ; 
     border: none;
     border-radius:10px;
     color: white;
@@ -88,26 +88,26 @@ body {
 }
 .registrati:hover  {
   padding-right: 15px;
-  background-color: #980000;
+  background-color: #0080c0;
   text-decoration: none;
 
   
 }
 
 .accedi {
- background-color: #800000 ;
+ background-color: #0080ff ;
     color: white;
     border-radius:12px;
     margin:  20px 70px 50px;
     text-decoration: none;
 }
 .accedi:hover{
-	background-color: #970000;
+	background-color: #0080c0;
 	 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .reg{
-	 background-color: #800000;
+	 background-color: #0080ff;
 }
 
 a{
@@ -115,7 +115,7 @@ a{
 }
 
 a:link, a:visited {
-	color:#800000;	text-decoration: none;
+	color:#0080ff;	text-decoration: none;
 }
 
 a:hover, a:active {
@@ -189,7 +189,7 @@ input[type=date], select {
 }
 .registrati {
     width: 40%;
-     background-color: #800000 ; 
+     background-color: #0080ff ; 
     border: none;
     border-radius:10px;
     color: white;
@@ -206,7 +206,7 @@ input[type=date], select {
 }
 .registrati2 {
     width: 20%;
-     background-color: #800000 ; 
+     background-color: #0080ff ; 
     border: none;
     border-radius:10px;
     color: white;
@@ -240,7 +240,7 @@ input[type=date], select {
 }
 .registrati:hover  {
   padding-right: 15px;
-  background-color: #980000;
+  background-color: #0080c0;
 
   
 }
@@ -266,7 +266,7 @@ input[type=date], select {
 }
 .registrati2:hover  {
   padding-right: 15px;
-  background-color: #980000;
+  background-color: #0080c0;
 
   
 }

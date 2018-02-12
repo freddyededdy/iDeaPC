@@ -221,7 +221,7 @@ function checkcel(){
                 <h5 class="white-text">LINK</h5>
                 <ul>
                   
-                   <li><a class="grey-text text-lighten-3" href="index.html">HOME</a></li>
+                   <li><a class="grey-text text-lighten-3" href="indexLoggato.html">HOME</a></li>
   <ul>
                   <li><a class="indexloggato.jsp" href="indexLoggato.jsp">HOME</a></li>
                   <li><a class="menuutenteloggato.jsp" href="menuutenteloggato.jsp">MENU</a></li>
