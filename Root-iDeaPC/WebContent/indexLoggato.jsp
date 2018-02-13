@@ -154,7 +154,7 @@ if(carrello==null){
 	<nav>
 	<div class="nav-wrapper">
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i
-			class="material-icons">prodotti</i></a>
+			class="material-icons">menu</i></a>
 		<ul id="nav-mobile" class="left hide-on-med-and-down"
 			style="margin: 0px 20px">
 
