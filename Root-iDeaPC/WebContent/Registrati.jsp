@@ -99,7 +99,7 @@ function loadDoc() {
 <body class="body">
 <header class="mainheader">
    <div class="parallax-container" style="height:400px">
-      <div class="parallax"><img src="pizzeria1.png"></div>
+      <div class="parallax"><img src="ideapc.jpeg"></div>
 
 
     </div>
@@ -111,16 +111,16 @@ function loadDoc() {
 	</header>
 	 <nav>
     <div class="nav-wrapper">
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">prodotti</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down" style="margin:0px 20px">
         
         <li><a href="indexLoggato.jsp">HOME</a></li>
-        <li><a href="menuutenteloggato.jsp">MENU</a></li>
+        <li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
         <li><a href="contattiutente.jsp">CONTATTI</a>
         <li><a href="#" onclick="loadDoc()">ORDINI EFFETTUATI</a></li>
       </ul>
                <ul class="side-nav" id="mobile-demo">
-      <li><a href="menuutenteloggato.jsp">MENU</a></li>
+      <li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
         <li><a href="contattiutente.jsp">CONTATTI</a>
         <li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
       </ul>
@@ -245,7 +245,7 @@ function checkcel(){
                    <li><a class="grey-text text-lighten-3" href="indexLoggato.html">HOME</a></li>
   <ul>
                   <li><a class="indexloggato.jsp" href="indexLoggato.jsp">HOME</a></li>
-                  <li><a class="menuutenteloggato.jsp" href="menuutenteloggato.jsp">MENU</a></li>
+                  <li><a class="menuutenteloggato.jsp" href="menuutenteloggato.jsp">PRODOTTI</a></li>
                   <li><a class="contattiutente.jsp" href="contattiutente.jsp">CONTATTI</a></li>
                 </ul>
                 </ul>

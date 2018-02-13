@@ -154,17 +154,17 @@ if(carrello==null){
 	<nav>
 	<div class="nav-wrapper">
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i
-			class="material-icons">menu</i></a>
+			class="material-icons">prodotti</i></a>
 		<ul id="nav-mobile" class="left hide-on-med-and-down"
 			style="margin: 0px 20px">
 
 			<li><a href="indexLoggato.jsp">HOME</a></li>
-			<li><a href="menuutenteloggato.jsp">MENU</a></li>
+			<li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
 			<li><a href="#" onclick="loadDoc()">ORDINI EFFETTUATI</a></li>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
-			<li><a href="menuutenteloggato.jsp">MENU</a></li>
+			<li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
 			<li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
 		</ul>
@@ -194,32 +194,30 @@ if(carrello==null){
 
 			<div class="slider">
 				<ul class="slides">
-					<li><img src="mike's.png"> <!-- random image -->
+					<li><img src="ideapc.jpeg"> <!-- random image -->
 						<div class="caption center-align">
-							<h3>Questo è il nostro ristorante</h3>
-							<h5 class="light grey-text text-lighten-3">Vienici a trovare</h5>
+							<h3>iDeaPC</h3>
+							<h5 class="light grey-text text-lighten-3">Il sito di componentistica PC n.1 al mondo!</h5>
 						</div></li>
 					<li><img
-						src="http://static.salepepe.it/files/2016/04/pizza.jpg"> <!-- random image -->
+						src="http://invisioncommunity.co.uk/wp-content/uploads/2017/01/gaming-hardware-matters.jpg"> <!-- random image -->
 						<div class="caption left-align">
-							<h3>Piatti ottimi....</h3>
+							<h3>Hardware PC di ultima generazione..</h3>
 							<h5 class="light grey-text text-lighten-3">solo per te!</h5>
 						</div></li>
 					<li><img
-						src="http://cateringit.altervista.org/wp-content/uploads/2014/10/come-sceglie-unimpresa-di-catering-i-camerieri.jpg">
+						src="https://www.idgcdn.com.au/article/images/740x500/dimg/gigabyte_custom_pc_builds_ces_2017-100702711-orig.jpg">
 						<!-- random image -->
 						<div class="caption right-align">
-							<h3>Un servizio!</h3>
-							<h5 class="light grey-text text-lighten-3">....che solo in
-								pochi ti possono offrire!</h5>
+							<h3>Scegli tu l'hardware!</h3>
+							<h5 class="light grey-text text-lighten-3">..e ti assembliamo noi il PC!</h5>
 						</div></li>
 					<li><img
-						src="http://2night.s3.amazonaws.com/pics/articles/cropped/1600x800/8de/5656dda1c9f56b4ad66fbd62.jpg">
+						src="http://laptophungthinh.com.vn/wp-content/uploads/2017/11/Q1.jpg">
 						<!-- random image -->
 						<div class="caption center-align">
-							<h3>Prodotti DOC</h3>
-							<h5 class="light grey-text text-lighten-3">La provenienza fa
-								la differenza!</h5>
+							<h3>Offriamo anche PC preassemblati!</h3>
+							<h5 class="light grey-text text-lighten-3">..per gli utenti che vogliono essere gia' pronti al gioco!</h5>
 						</div></li>
 				</ul>
 			</div>
@@ -241,7 +239,7 @@ if(carrello==null){
 				<ul>
 					<li><a class="indexloggato.jsp" href="indexLoggato.jsp">HOME</a></li>
 					<li><a class="menuutenteloggato.jsp"
-						href="menuutenteloggato.jsp">MENU</a></li>
+						href="menuutenteloggato.jsp">PRODOTTI</a></li>
 					<li><a class="contattiutente.jsp" href="contattiutente.jsp">CONTATTI</a></li>
 				</ul>
 			</div>

@@ -7,7 +7,7 @@ page language="java" contentType="text/html; charset=ISO-8859-1"
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mike's Pizza</title>
+<title>iDeaPC</title>
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,7 +61,7 @@ try{
 	<header class="mainheader">
 	<div class="parallax-container" style="height: 400px">
 		<div class="parallax">
-			<img src="pizzeria1.png">
+			<img src="ideapc.jpeg">
 		</div>
 		<div
 			style="float: right; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 2% 2% 2% 2%; margin: 3% 4%; position: relative;">
@@ -95,8 +95,8 @@ try{
 		<ul id="nav-mobile" class="left hide-on-med-and-down"
 			style="margin: 0px 20px">
 
-			<li><a href="Admin.jsp"> Home admin</a></li>
-			<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
+			<li><a href="Admin.jsp">HOME ADMIN</a></li>
+			<li><a href="gestione-prodotto.jsp"> GESTIONE PRODOTTI</a></li>
 			<li><a href="#" onclick="loadDoc()">TUTTI GLI ORDINI</a></li>
 			<% System.out.println(session.getId()); %>
 		</ul>
@@ -126,12 +126,12 @@ try{
 				<div class="col s12 m7">
 					<div class="card">
 						<div class="card-image">
-							<img src="pizzeria3.jpg"> <span class="card-title">Gestione
+							<img src="https://tecnouser.net/wp-content/uploads/2015/05/Assemblare-PC-Gaming1.jpg"> <span class="card-title">Gestione
 								prodotti</span>
 						</div>
 						<div class="card-content">
 							<p>Questa è la sezione dedicata all'aggiunta o alla modifica
-								dei prodotti della casa</p>
+								dei prodotti</p>
 						</div>
 						<div class="card-action">
 							<a href="gestione-prodotto.jsp">Vai alla sezione!</a>
@@ -140,38 +140,19 @@ try{
 				</div>
 			</div>
 
-
 			<div class="row">
 				<div class="col s12 m7">
 					<div class="card">
 						<div class="card-image">
-							<img src="pizzeria3.jpg"> <span class="card-title">Gestione
-								clienti</span>
+							<img src="https://i1.wp.com/www.fatturaelettronica.pa.it/wp-content/uploads/2017/06/fattura-elettronica-pa-quanto-costa-archiviare-le-fatture-elettroniche.jpg"> <span class="card-title">Gestione
+								ordini</span>
 						</div>
 						<div class="card-content">
-							<p>Questa è la sezione dedicata alla modifica dei dati dei
-								clienti iscritti al sito!</p>
+							<p>Questa è la sezione dedicata alla gestione degli
+								ordini effettutati dagli iscritti al sito</p>
 						</div>
 						<div class="card-action">
-							<a href="gestione-cliente.jsp">Vai alla sezione!</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col s12 m7">
-					<div class="card">
-						<div class="card-image">
-							<img src="pizzeria3.jpg"> <span class="card-title">Gestione
-								ordinazioni</span>
-						</div>
-						<div class="card-content">
-							<p>Questa è la sezione dedicata alla gestione delle
-								ordinazioni effettutate dagli iscritti al sito</p>
-						</div>
-						<div class="card-action">
-							<a href="OrdiniEffettuatiTuttiA.jsp">Vai alla sezione!</a>
+							<li><a href="#" onclick="loadDoc()">Vai alla sezione!</a></li>
 						</div>
 					</div>
 				</div>

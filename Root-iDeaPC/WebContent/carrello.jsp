@@ -9,7 +9,7 @@ page language="java" contentType="text/html; charset=ISO-8859-1"
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mike's Pizza</title>
+<title>iDeaPC</title>
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -142,7 +142,7 @@ function loadDoc() {
 	<header class="mainheader">
 	<div class="parallax-container" style="height: 400px">
 		<div class="parallax">
-			<img src="pizzeria1.png">
+			<img src="ideapc.jpeg">
 		</div>
 		<div
 			style="float: right; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 2% 2% 2% 2%; margin: 3% 4%; position: relative;">
@@ -168,17 +168,17 @@ function loadDoc() {
 	<nav>
 	<div class="nav-wrapper">
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i
-			class="material-icons">menu</i></a>
+			class="material-icons"></i></a>
 		<ul id="nav-mobile" class="left hide-on-med-and-down"
 			style="margin: 0px 20px">
 
 			<li><a href="indexLoggato.jsp">HOME</a></li>
-			<li><a href="menuutenteloggato.jsp">MENU</a></li>
+			<li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
 			<li><a href="#" onclick="loadDoc()">ORDINI EFFETTUATI</a></li>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
-			<li><a href="menuutenteloggato.jsp">MENU</a></li>
+			<li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
 			<li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
 		</ul>
@@ -230,7 +230,7 @@ function loadDoc() {
 						<td><%=pr.getPrezzo()%></td>
 						<td><%=pr.getQuantitaCarrello()%></td>
 
-						<form action="rimuovidalcarrellocontroller" method="post">
+						<form action="Rimuovidalcarrellocontroller" method="post">
 							<input type="hidden" name="id_prod" value="<%=pr.getId_prod()%>" />
 							<td><button type="submit"
 									class="waves-effect waves-light btn">
@@ -246,7 +246,7 @@ function loadDoc() {
 
 				</tbody>
 			</table>
-			<form action="svuotacarrellocontroller" method="post">
+			<form action="Svuotacarrellocontroller" method="post">
 				<button type="submit" class="waves-effect waves-light btn">
 					SVUOTA CARRELLO <i class="tiny material-icons">delete</i>
 				</button>
@@ -324,7 +324,7 @@ function loadDoc() {
 				<ul>
 					<li><a class="indexloggato.jsp" href="indexLoggato.jsp">HOME</a></li>
 					<li><a class="menuutenteloggato.jsp"
-						href="menuutenteloggato.jsp">MENU</a></li>
+						href="menuutenteloggato.jsp">PRODOTTI</a></li>
 					<li><a class="contattiutente.jsp" href="contattiutente.jsp">CONTATTI</a></li>
 				</ul>
 			</div>

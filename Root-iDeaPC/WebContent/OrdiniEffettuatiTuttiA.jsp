@@ -9,7 +9,7 @@ page
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mike's Pizza</title>
+<title>iDeaPC</title>
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +72,7 @@ Collection<Ordine> ordiniTutti=(Collection<Ordine>)sessione.getAttribute("ordine
 	<header class="mainheader">
 	<div class="parallax-container" style="height: 400px">
 		<div class="parallax">
-			<img src="pizzeria1.png">
+			<img src="ideapc.jpeg">
 		</div>
 		<div
 			style="float: right; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 2% 2% 2% 2%; margin: 3% 4%; position: relative;">
@@ -104,8 +104,8 @@ Collection<Ordine> ordiniTutti=(Collection<Ordine>)sessione.getAttribute("ordine
 		<ul id="nav-mobile" class="left hide-on-med-and-down"
 			style="margin: 0px 20px">
 
-			<li><a href="Admin.jsp"> Home admin</a></li>
-			<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
+			<li><a href="Admin.jsp"> HOME ADMIN</a></li>
+			<li><a href="gestione-prodotto.jsp"> GESTIONE PRODOTTI</a></li>
 			<li><a href="#" onclick="loadDoc()">TUTTI GLI ORDINI</a></li>
 			<% System.out.println(session.getId()); %>
 		</ul>

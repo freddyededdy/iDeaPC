@@ -168,7 +168,7 @@ function islog(cliente){
 	<header class="mainheader">
 	<div class="parallax-container" style="height: 400px">
 		<div class="parallax">
-			<img src="pizzeria1.png">
+			<img src="ideapc.jpeg">
 		</div>
 		<div
 			style="float: right; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 2% 2% 2% 2%; margin: 3% 4%; position: relative;">
@@ -231,12 +231,12 @@ function islog(cliente){
 			style="margin: 0px 20px">
 
 			<li><a href="indexLoggato.jsp">HOME</a></li>
-			<li><a href="menuutenteloggato.jsp">MENU</a></li>
+			<li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
 			<li><a href="#" onclick="loadDoc()">ORDINI EFFETTUATI</a></li>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
-			<li><a href="menuutenteloggato.jsp">MENU</a></li>
+			<li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
 			<li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
 		</ul>
@@ -252,10 +252,10 @@ function islog(cliente){
 		<div class="content">
 			<article class="topcontent"> <header>
 			<h2>
-				<a href="#" title="first post">Lista prodotti menu</a>
+				<a href="#" title="first post">Lista dei prodotti</a>
 			</h2>
 			</header> <footer>
-			<p class="post-info">Prodotti della casa doc.</p>
+			<p class="post-info">Prodotti di ultima generazione!</p>
 			</footer>
 
 
@@ -367,7 +367,7 @@ function islog(cliente){
 				<ul>
 					<li><a class="indexloggato.jsp" href="indexLoggato.jsp">HOME</a></li>
 					<li><a class="menuutenteloggato.jsp"
-						href="menuutenteloggato.jsp">MENU</a></li>
+						href="menuutenteloggato.jsp">PRODOTTI</a></li>
 					<li><a class="contattiutente.jsp" href="contattiutente.jsp">CONTATTI</a></li>
 				</ul>
 			</div>

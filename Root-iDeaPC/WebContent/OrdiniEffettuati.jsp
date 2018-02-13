@@ -8,7 +8,7 @@ page
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mike's Pizza</title>
+<title>iDeaPC</title>
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,7 +89,7 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
 	<header class="mainheader">
 	<div class="parallax-container" style="height: 400px">
 		<div class="parallax">
-			<img src="pizzeria1.png">
+			<img src="ideapc.jpeg">
 		</div>
 		<div
 			style="float: right; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 2% 2% 2% 2%; margin: 3% 4%; position: relative;">
@@ -121,12 +121,12 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
 			style="margin: 0px 20px">
 
 			<li><a href="indexLoggato.jsp">HOME</a></li>
-			<li><a href="menuutenteloggato.jsp">MENU</a></li>
+			<li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
 			<li><a href="#" onclick="loadDoc()">ORDINI EFFETTUATI</a></li>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
-			<li><a href="menuutenteloggato.jsp">MENU</a></li>
+			<li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
 			<li><a href="OrdiniEffettuati.jsp">ORDINI EFFETTUATI</a></li>
 		</ul>
