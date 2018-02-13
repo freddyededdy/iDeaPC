@@ -161,7 +161,7 @@ if(carrello==null){
 			<li><a href="indexLoggato.jsp">HOME</a></li>
 			<li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
-			<li><a href="#" onclick="loadDoc()">ORDINI EFFETTUATI</a></li>
+			<li><a href="#" onclick="loadDoc()">ORDINI EFFETTUATI </a></li>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
 			<li><a href="menuutenteloggato.jsp">PRODOTTI</a></li>
