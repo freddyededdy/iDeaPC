@@ -37,6 +37,28 @@ function checklog(){
 	else return;
 }</script>
 
+  <script>
+function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	var valore = xhttp.getResponseHeader("ord");
+	    	if(valore == 1){
+	    		open("indexLoggato.jsp", "_SELF");
+	    	}
+	    	if(valore == 2){
+	    		open("OrdiniEffettuati.jsp", "_SELF");
+	    	}
+	    	else{
+	    		alert("ERRORE");
+	    	}
+	    }
+	  };
+	  xhttp.open("POST", "visualizzafatture", false);
+	  xhttp.send();
+	}
+</script>
+
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -101,9 +123,7 @@ Collection<Ordine> ordiniCliente=(Collection<Ordine>)sessione.getAttribute("ordi
 			<li><a href="indexLoggato.jsp">HOME</a></li>
 			<li><a href="menuutenteloggato.jsp">MENU</a></li>
 			<li><a href="contattiutente.jsp">CONTATTI</a>
-				<form action="visualizzafatture" method="post">
-					<li><button type="submit">ORDINI EFFETTUATI</button></li>
-				</form>
+			<li><a href="#" onclick="loadDoc()">ORDINI EFFETTUATI</a></li>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
 			<li><a href="menuutenteloggato.jsp">MENU</a></li>

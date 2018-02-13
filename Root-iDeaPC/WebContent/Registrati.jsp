@@ -50,6 +50,29 @@ confirm_password.onkeyup = validatePassword;
 
 
   </script>
+  
+  <script>
+function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	var valore = xhttp.getResponseHeader("ord");
+	    	if(valore == 1){
+	    		open("indexLoggato.jsp", "_SELF");
+	    	}
+	    	if(valore == 2){
+	    		open("OrdiniEffettuati.jsp", "_SELF");
+	    	}
+	    	else{
+	    		alert("ERRORE");
+	    	}
+	    }
+	  };
+	  xhttp.open("POST", "visualizzafatture", false);
+	  xhttp.send();
+	}
+</script>
+  
   <script>
   function controlloFormato(){
 	  var x = document.getElementById("nomeid");
@@ -91,12 +114,10 @@ confirm_password.onkeyup = validatePassword;
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down" style="margin:0px 20px">
         
-               <li><a href="indexLoggato.jsp">HOME</a></li>
+        <li><a href="indexLoggato.jsp">HOME</a></li>
         <li><a href="menuutenteloggato.jsp">MENU</a></li>
         <li><a href="contattiutente.jsp">CONTATTI</a>
-        <form action = "visualizzafatture" method="post">
-        <li><button type ="submit">ORDINI EFFETTUATI</button></li>
-        </form>
+        <li><a href="#" onclick="loadDoc()">ORDINI EFFETTUATI</a></li>
       </ul>
                <ul class="side-nav" id="mobile-demo">
       <li><a href="menuutenteloggato.jsp">MENU</a></li>

@@ -55,6 +55,20 @@
 		}
 	}
 	</script>
+	
+  <script>
+function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	open("OrdiniEffettuatiTuttiA.jsp", "_SELF");
+	    }
+	  };
+	  xhttp.open("POST", "visualizzatuttelefattureA", false);
+	  xhttp.send();
+	}
+</script>	
+
 <script>
 /**
  * controllo sulla quantità
@@ -106,9 +120,10 @@ OrdineDs ordineds= new OrdineDs();
 			style="float: right; background-color: rgba(255, 255, 255, 0.5); border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 2% 2% 2% 2%; margin: 3% 4%; position: relative;">
 			 <p style=" text-align:center;"><i class="small material-icons">perm_identity</i> Ciao admin</p>  
 			<div class="btn-group red">
-				<a href="Logout.jsp" class="btn btn-primary">Logout</a>
-
-
+			<form action="LogoutController" method="post" class="btn btn-primary"
+				style="padding: 0">
+				<button class="btn btn-primary" type="submit">Logout</button>
+			</form>
 			</div>
 
 		</div>
@@ -130,9 +145,7 @@ OrdineDs ordineds= new OrdineDs();
 
 			<li><a href="Admin.jsp"> Home admin</a></li>
 			<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
-			<form action="visualizzatuttelefattureA" method="post">
-				<li><button type="submit">ORDINI EFFETTUATI</button></li>
-			</form>
+			<li><a href="#" onclick="loadDoc()">TUTTI GLI ORDINI</a></li>
 			<% System.out.println(session.getId()); %>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">

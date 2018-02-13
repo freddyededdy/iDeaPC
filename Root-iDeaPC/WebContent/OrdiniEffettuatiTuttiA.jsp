@@ -32,6 +32,20 @@ $(document).ready(function(){
   $('.parallax').parallax();
 });
   </script>
+  
+  <script>
+function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	open("OrdiniEffettuatiTuttiA.jsp", "_SELF");
+	    }
+	  };
+	  xhttp.open("POST", "visualizzatuttelefattureA", false);
+	  xhttp.send();
+	}
+</script>
+  
 <script type="text/javascript">
 
   $( document ).ready(function(){
@@ -65,7 +79,10 @@ Collection<Ordine> ordiniTutti=(Collection<Ordine>)sessione.getAttribute("ordine
 			<p style="text-align: center;">
 				<i class="small material-icons"></i> Ciao Admin</p>
 			<div class="btn-group red">
-				<a href="Logout.jsp" class="btn btn-primary">Logout</a>
+			<form action="LogoutController" method="post" class="btn btn-primary"
+				style="padding: 0">
+				<button class="btn btn-primary" type="submit">Logout</button>
+			</form>
 
 
 			</div>
@@ -89,9 +106,7 @@ Collection<Ordine> ordiniTutti=(Collection<Ordine>)sessione.getAttribute("ordine
 
 			<li><a href="Admin.jsp"> Home admin</a></li>
 			<li><a href="gestione-prodotto.jsp"> gestione prodotti</a></li>
-			<form action="visualizzatuttelefattureA" method="post">
-				<li><button type="submit">ORDINI EFFETTUATI</button></li>
-			</form>
+			<li><a href="#" onclick="loadDoc()">TUTTI GLI ORDINI</a></li>
 			<% System.out.println(session.getId()); %>
 		</ul>
 		<ul class="side-nav" id="mobile-demo">
@@ -199,8 +214,6 @@ Collection<Ordine> ordiniTutti=(Collection<Ordine>)sessione.getAttribute("ordine
 						<%=new DecimalFormat("#.##").format(totfat)
 					%></p></b>
 
-
-	____________________________________________________________________________________________________________________________________
 				<br> <br> <br>
 				<%
 					}
